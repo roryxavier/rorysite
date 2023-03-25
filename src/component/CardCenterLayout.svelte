@@ -1,4 +1,4 @@
-<div class="drop-shadow-md bg-white rounded-lg w-full pl-3 pr-3 d">
+<div class="drop-shadow-md bg-white rounded-2xl w-full d">
 	<slot />
 </div>
 

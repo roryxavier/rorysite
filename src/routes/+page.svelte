@@ -2,7 +2,7 @@
 	import Avatar from '../resource/avatar.webp';
 	import CardCenterLayout from '../component/CardCenterLayout.svelte';
 
-	let arr = ['He/Him', 'Wolf', 'Gay', 'Taken - 🦊', 'Programmer', 'Happy Go Lucky'];
+	let labels = ['He/Him', 'Wolf', 'Gay', 'Taken - 🦊', 'Programmer', 'Happy Go Lucky'];
 	let links = [
 		{
 			name: '@rory_xavi',
@@ -25,22 +25,27 @@
 	];
 </script>
 
-<div class="text-center flex flex-col items-center pl-10 pr-10">
+<div class="text-center flex flex-col items-center">
 	<CardCenterLayout>
-		<div class="flex flex-col space-y-1.5 place-items-stretch">
-			<div class="pt-1.5" />
-			<img src={Avatar} alt="Avatar" class="w-40 rounded-full items-end m-auto" />
-			<p class="text-5xl font-bold text-blue-900">Rory!</p>
-			<div class="pt-1.5" />
-			<div class="grid gap-4 lg:grid-cols-3 grid-cols-2 grid-rows-3 gap-1.5">
-				{#each arr as c}
-					<div
-						class="bg-gradient-to-br text-blue-900 from-blue-100 to-blue-300 text-sm px-3 py-0.5 rounded-full"
-					>
-						{c}
-					</div>
-				{/each}
+		<div class="flex flex-col space-y-6 place-items-stretch p-5">
+			<div class="flex flex-col items-center">
+				<img src={Avatar} alt="Avatar" class="w-40 rounded-full" />
+				<h1 class="mb-4 text-5xl font-bold text-blue-900">Rory!</h1>
+
+				<div
+					class="w-full grid gap-1.5"
+					style="grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));"
+				>
+					{#each labels as label}
+						<div
+							class="flex items-center justify-center bg-gradient-to-br text-blue-900 from-blue-100 to-blue-300 text-sm px-2 py-0.5 leading-1 rounded-full"
+						>
+							{label}
+						</div>
+					{/each}
+				</div>
 			</div>
+
 			<div class="flex flex-col m-auto text-justify text-base space-y-4">
 				<p>
 					Hey there! Thanks for dropping by my site. My name's <span class="text-blue-900 font-bold"
@@ -52,23 +57,21 @@
 					Social Sites. Cheers!!
 				</p>
 			</div>
-			<div class="pb-2" />
+
 			<div class="flex flex-col text-base">
-				<div class="grid grid-cols-1 md:grid-cols-2 gap-4 ">
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-2">
 					{#each links as link}
 						<a
 							href={link.link}
-							class="flex relative bg-blue-100 text-blue-900 items-center p-2 rounded-lg overflow-hidden"
+							target="_blank"
+							class="p-4 gap-3 flex flex-row items-center justify-start bg-blue-100 focus:bg-blue-200 hover:bg-blue-200 text-blue-900 rounded-xl overflow-hidden transition"
 						>
-							<div class="absolute inset-y-0 left-0">
-								<img alt={link.name} src={link.img} class="w-6 h-6 m-2" height="100" />
-							</div>
-							<span class="font-semibold pl-10">{link.name}</span></a
+							<img alt={link.name} src={link.img} class="w-6 h-6" height="100" />
+							<span class="font-semibold">{link.name}</span></a
 						>
 					{/each}
 				</div>
 			</div>
-			<div class="pb-2" />
 		</div>
 	</CardCenterLayout>
 </div>
