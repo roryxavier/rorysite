@@ -1,29 +1,14 @@
 <script>
 	import Avatar from '../resource/avatar.webp';
 	import CardCenterLayout from '../component/CardCenterLayout.svelte';
-
-	let labels = ['He/Him', 'Wolf', 'Gay', 'Taken - 🦊', 'Programmer', 'Happy Go Lucky'];
-	let links = [
-		{
-			name: '@rory_xavi',
-			alt: 'Twitter',
-			img: 'https://upload.wikimedia.org/wikipedia/commons/4/4f/Twitter-logo.svg',
-			link: 'https://twitter.com/rory_xavi'
-		},
-		{
-			name: '@roryxavier',
-			alt: 'Telegram',
-			img: 'https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg',
-			link: 'https://t.me/roryxavier'
-		},
-		{
-			name: 'Reference Website',
-			alt: 'Reference Site',
-			img: 'https://img.icons8.com/color/48/null/paint-palette-with-brush.png',
-			link: 'https://ref.rorywolf.net'
-		}
-	];
+	import GlobalVars from '../vars/GlobalVars';
+	import Favicon from '../resource/favicon.ico';
 </script>
+
+<svelte:head>
+	<link rel="icon" href={Favicon} />
+	<title>Rory!</title>
+</svelte:head>
 
 <div class="text-center flex flex-col items-center">
 	<CardCenterLayout>
@@ -36,7 +21,7 @@
 					class="w-full grid gap-1.5"
 					style="grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));"
 				>
-					{#each labels as label}
+					{#each GlobalVars.LABELS as label}
 						<div
 							class="flex items-center justify-center bg-gradient-to-br text-blue-900 from-blue-100 to-blue-300 text-sm px-2 py-0.5 leading-1 rounded-full"
 						>
@@ -60,7 +45,7 @@
 
 			<div class="flex flex-col text-base">
 				<div class="grid grid-cols-1 md:grid-cols-2 gap-2">
-					{#each links as link}
+					{#each GlobalVars.SOCIAL_LINKS as link}
 						<a
 							href={link.link}
 							target="_blank"
