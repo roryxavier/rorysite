@@ -25,10 +25,18 @@ pipeline {
             }
         }
 
+        stage('Stop if there a running container') {
+            steps {
+                sh 'docker ps -f name=rorysite_dev -q | xargs --no-run-if-empty docker container stop'
+                sh 'docker container ls -a -fname=rorysite_dev -q | xargs -r docker container rm'
+
+            }
+        }
+
         stage('Run local docker') {
             steps {
                 // Push to local server
-                sh 'docker run --init -p 8080:80 rorysite-dev:latest'
+                sh 'docker run --init --name rorysite_dev -d -p 8080:80 rorysite-dev:latest'
 
             }
         }

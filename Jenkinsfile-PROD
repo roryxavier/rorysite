@@ -1,0 +1,32 @@
+pipeline {
+    agent any
+    tools { nodejs "nodejs" }
+    environment {
+        CF_ACCOUNT_ID  = credentials('CF_ACCOUNT_ID')
+        CF_API_TOKEN   = credentials('CF_API_TOKEN')
+    }
+    stages {
+        stage('Git Checkout') {
+            steps {
+                git branch: 'PROD', url: 'https://github.com/roryxavier/rorysite.git'
+            }
+        }
+        stage('Build Website') {
+            steps {
+                // Build your Docker image
+                script {
+                    sh 'npm install'
+                    sh 'npm run build'
+                }
+            }
+        }
+        stage('Publish the website to cloudflare') {
+            steps {
+                // Build your Docker image
+                script {
+                    sh 'npm run publish'
+                }
+            }
+        }
+    }
+}
