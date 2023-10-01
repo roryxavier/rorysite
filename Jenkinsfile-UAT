@@ -1,9 +1,19 @@
 pipeline {
     agent any
+    tools { nodejs "nodejs" }
     stages {
         stage('Git Checkout') {
             steps {
-                git branch: 'UAT', url: 'https://github.com/roryxavier/rorysite.git'
+                git branch: 'main', url: 'https://github.com/roryxavier/rorysite.git'
+            }
+        }
+        stage('Build Website') {
+            steps {
+                // Build your Docker image
+                script {
+                    sh 'npm install'
+                    sh 'npm run build'
+                }
             }
         }
         stage('Build Docker Image') {
