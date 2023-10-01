@@ -1,0 +1,26 @@
+pipeline {
+    agent any
+    stages {
+        stage('Git Checkout') {
+            steps {
+                git branch: 'UAT', url: 'https://github.com/roryxavier/rorysite.git'
+            }
+        }
+        stage('Build Docker Image') {
+            steps {
+                // Build your Docker image
+                script {
+                    sh 'docker build -t rorysite-dev .'
+                }
+            }
+        }
+
+        stage('Run local docker') {
+            steps {
+                // Push to local server
+                sh 'docker run --init -p 8080:80 rorysite-dev:latest'
+
+            }
+        }
+    }
+}
