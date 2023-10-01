@@ -3,6 +3,14 @@
 	import CardCenterLayout from '../component/CardCenterLayout.svelte';
 	import GlobalVars from '../vars/GlobalVars';
 	import Favicon from '../resource/favicon.ico';
+	import { onMount } from 'svelte';
+
+	let show = false;
+	onMount(() => {
+		setTimeout(() => {
+			show = true;
+		}, 10);
+	});
 </script>
 
 <svelte:head>
@@ -10,7 +18,7 @@
 	<title>Rory!</title>
 </svelte:head>
 
-<div class="text-center flex flex-col items-center">
+<div class="home-page {show ? 'home-page-show' : ''}">
 	<CardCenterLayout>
 		<div class="card-body">
 			<div class="card-header">
@@ -56,6 +64,21 @@
 </div>
 
 <style scoped lang="scss">
+	.home-page {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+
+		transition: all 0.4s ease;
+		opacity: 0;
+		transform: translateY(0.2rem);
+	}
+	.home-page-show {
+		opacity: 1;
+		transform: translateY(0);
+	}
+
 	.socials {
 		gap: 0.5rem;
 		display: flex;
