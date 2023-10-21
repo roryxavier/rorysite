@@ -1,6 +1,6 @@
 <script>
 	import '../app.css';
-	import RootLayout from '../component/RootLayout.svelte';
+	import RootLayout from '@/component/RootLayout.svelte';
 </script>
 
 <body>

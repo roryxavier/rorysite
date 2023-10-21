@@ -1,8 +1,8 @@
 <script>
-	import Avatar from '../resource/avatar.webp';
-	import CardCenterLayout from '../component/CardCenterLayout.svelte';
-	import GlobalVars from '../vars/GlobalVars';
-	import Favicon from '../resource/favicon.ico';
+	import Avatar from '@/resource/avatar.webp';
+	import CardCenterLayout from '@/component/CardCenterLayout.svelte';
+	import GlobalVars from '@/vars/GlobalVars';
+	import Favicon from '@/resource/favicon.ico';
 	import { onMount } from 'svelte';
 
 	let show = false;
