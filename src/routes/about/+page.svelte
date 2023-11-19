@@ -1,6 +1,6 @@
 <script>
 	import Favicon from '@/resource/favicon.ico';
-	import SectionFirst from '@/routes/SectionFirst.svelte';
+	import SectionIntroduction from '@/routes/SectionIntroduction.svelte';
 </script>
 
 <svelte:head>
@@ -9,7 +9,7 @@
 </svelte:head>
 
 <div class="home-page">
-	<SectionFirst />
+	<SectionIntroduction />
 </div>
 
 <style scoped lang="scss">

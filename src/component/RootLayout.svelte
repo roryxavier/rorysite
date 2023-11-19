@@ -1,16 +1,21 @@
-<div class="container px-8 py-10 flex flex-col items-center justify-center">
+<div class="container">
 	<div class="bg" />
 	<slot />
 </div>
 
 <style lang="css">
 	.container {
-		min-width: 100%;
-		min-height: 100dvh;
+		width: 100vw;
+		max-width: 100%;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: stretch;
+		justify-content: stretch;
 	}
 	.bg {
-		min-width: 100vw;
-		min-height: 110vh;
+		width: 100vw;
+		height: 100lvh;
 
 		position: fixed;
 		top: 0;

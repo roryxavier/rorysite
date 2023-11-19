@@ -4,8 +4,14 @@
 
 <style scoped lang="scss">
 	.card-center-layout {
+		display: flex;
+		flex-direction: column;
+		align-items: stretch;
+		justify-content: center;
+
 		width: 100%;
 		max-width: 35rem;
+		row-gap: 1.5rem;
 
 		background: white;
 		border-radius: 1rem;
@@ -15,6 +21,18 @@
 
 		@media (min-width: 550px) {
 			border-radius: 2rem;
+		}
+
+		font-size: 1rem;
+
+		transition: all 400ms ease;
+
+		padding: 1.5rem;
+		@media (min-width: 450px) {
+			padding: 2rem;
+		}
+		@media (min-width: 650px) {
+			padding: 3rem;
 		}
 	}
 </style>

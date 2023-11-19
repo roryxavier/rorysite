@@ -2,23 +2,38 @@
 @tailwind components;
 @tailwind utilities;
 
-body,
-html {
-	min-height: 100dvh;
-}
-
-body {
+:root {
 	font-size: calc(16px + (26 - 16) * ((100vw - 768px) / (1280 - 768)));
 }
 
 @media screen and (max-width: 768px) {
-	body {
+	:root {
 		font-size: 16px;
 	}
 }
-
 @media screen and (min-width: 1280px) {
-	body {
+	:root {
 		font-size: 26px;
 	}
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	min-height: 100dvh;
+	max-height: 100dvh;
+	position: relative;
+	overflow-y: auto;
+
+	display: flex;
+	flex-direction: column;
+}
+.index {
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
 }

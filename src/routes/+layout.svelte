@@ -1,7 +1,14 @@
 <script>
-	import '../app.css';
+	import { onMount } from 'svelte';
 	import RootLayout from '@/component/RootLayout.svelte';
 	import OgImage from '@/resource/og-image.png';
+	import '../app.css';
+	import Actionbar from '@/component/Actionbar.svelte';
+
+	let show = false;
+	onMount(() => {
+		setTimeout(() => (show = true), 10);
+	});
 </script>
 
 <svelte:head>
@@ -23,8 +30,37 @@
 	/>
 </svelte:head>
 
-<body>
-	<RootLayout>
-		<slot />
-	</RootLayout>
-</body>
+<RootLayout>
+	<div class="app" data-show={show}>
+		<Actionbar />
+
+		<div class="app-body">
+			<slot />
+		</div>
+	</div>
+</RootLayout>
+
+<style scoped lang="scss">
+	.app {
+		min-height: 100dvh;
+
+		transition: all 0.4s ease;
+		opacity: 0;
+		transform: translateY(0.2rem);
+
+		&[data-show='true'] {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	.app-body {
+		padding: 1rem;
+		min-height: calc(100dvh - 3.5rem);
+
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+</style>
