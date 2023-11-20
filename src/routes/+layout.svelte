@@ -1,14 +1,28 @@
-<script>
+<script lang="ts">
 	import { onMount } from 'svelte';
 	import RootLayout from '@/component/RootLayout.svelte';
 	import OgImage from '@/resource/og-image.png';
-	import '../app.css';
 	import Actionbar from '@/component/Actionbar.svelte';
+	import type { Nav } from '@/component/Nav.ts';
+	import '../app.css';
 
-	let show = false;
+	let showActionbar = false;
+	let showContent = false;
+	let currentNav: Nav | undefined = undefined;
+	let classAnimate = '';
 	onMount(() => {
-		setTimeout(() => (show = true), 10);
+		setTimeout(() => (showActionbar = true), 10);
+		setTimeout(() => (showContent = true), 10);
+		setTimeout(() => {
+			classAnimate = 'app-body-animate';
+		}, 500);
 	});
+
+	function onNavChange(nav: Nav) {
+		currentNav = nav;
+		showContent = false;
+		setTimeout(() => (showContent = true), 400);
+	}
 </script>
 
 <svelte:head>
@@ -31,10 +45,9 @@
 </svelte:head>
 
 <RootLayout>
-	<div class="app" data-show={show}>
-		<Actionbar />
-
-		<div class="app-body">
+	<div class="app">
+		<Actionbar {onNavChange} dataShow={showActionbar} />
+		<div class="app-body {classAnimate}" data-show={showContent}>
 			<slot />
 		</div>
 	</div>
@@ -43,15 +56,6 @@
 <style scoped lang="scss">
 	.app {
 		min-height: 100dvh;
-
-		transition: all 0.4s ease;
-		opacity: 0;
-		transform: translateY(0.2rem);
-
-		&[data-show='true'] {
-			opacity: 1;
-			transform: translateY(0);
-		}
 	}
 
 	.app-body {
@@ -62,5 +66,16 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
+
+		transition: all 0.4s ease;
+		transform: scale(1.1) translateY(4rem);
+		opacity: 0;
+		&[data-show='true'] {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+	.app-body-animate {
+		transform: translateY(0.2rem);
 	}
 </style>

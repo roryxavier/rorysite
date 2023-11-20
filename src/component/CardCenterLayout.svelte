@@ -10,7 +10,7 @@
 		justify-content: center;
 
 		width: 100%;
-		max-width: 35rem;
+		max-width: 50rem;
 		row-gap: 1.5rem;
 
 		background: white;
