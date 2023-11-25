@@ -1,6 +1,6 @@
 <script>
 	import Favicon from '@/resource/favicon.ico';
-	import SectionIntroduction from '@/routes/SectionIntroduction.svelte';
+	import SectionIntroduction from '@/routes/about/SectionIntroduction.svelte';
 </script>
 
 <svelte:head>
@@ -14,6 +14,7 @@
 
 <style scoped lang="scss">
 	.home-page {
+		width: 100%;
 		display: flex;
 		flex-direction: column;
 		align-items: center;

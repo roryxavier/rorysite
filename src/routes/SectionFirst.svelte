@@ -2,7 +2,6 @@
 	import Avatar from '@/resource/avatar.webp';
 	import CardCenterLayout from '@/component/CardCenterLayout.svelte';
 	import GlobalVars from '@/vars/GlobalVars';
-	import PageButton from '@/component/PageButton.svelte';
 </script>
 
 <CardCenterLayout>
@@ -42,11 +41,6 @@
 			</a>
 		{/each}
 	</div>
-
-	<div class="pager">
-		<div />
-		<PageButton title="About Me" href="/about" />
-	</div>
 </CardCenterLayout>
 
 <style scoped lang="scss">
@@ -61,7 +55,6 @@
 			transition: all 400ms ease;
 			--size: 9rem;
 			width: var(--size);
-			height: var(--size);
 		}
 		.card-content {
 			display: flex;
@@ -167,13 +160,5 @@
 				flex-grow: 1;
 			}
 		}
-	}
-	.pager {
-		display: flex;
-		flex-direction: row;
-		align-items: stretch;
-		justify-content: space-between;
-
-		gap: 1em;
 	}
 </style>

@@ -2,21 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-	font-size: calc(16px + (26 - 16) * ((100vw - 768px) / (1280 - 768)));
-}
-
-@media screen and (max-width: 768px) {
-	:root {
-		font-size: 16px;
-	}
-}
-@media screen and (min-width: 1280px) {
-	:root {
-		font-size: 26px;
-	}
-}
-
 * {
 	margin: 0;
 	padding: 0;
@@ -24,6 +9,8 @@
 }
 
 body {
+	--actionbar-height: 4.5rem;
+
 	min-height: 100dvh;
 	max-height: 100dvh;
 	position: relative;

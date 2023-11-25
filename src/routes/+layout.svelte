@@ -3,12 +3,11 @@
 	import RootLayout from '@/component/RootLayout.svelte';
 	import OgImage from '@/resource/og-image.png';
 	import Actionbar from '@/component/Actionbar.svelte';
-	import type { Nav } from '@/component/Nav.ts';
 	import '../app.css';
+	import { afterNavigate, beforeNavigate } from '$app/navigation';
 
 	let showActionbar = false;
 	let showContent = false;
-	let currentNav: Nav | undefined = undefined;
 	let classAnimate = '';
 	onMount(() => {
 		setTimeout(() => (showActionbar = true), 10);
@@ -18,11 +17,12 @@
 		}, 500);
 	});
 
-	function onNavChange(nav: Nav) {
-		currentNav = nav;
+	beforeNavigate(() => {
 		showContent = false;
+	});
+	afterNavigate(() => {
 		setTimeout(() => (showContent = true), 400);
-	}
+	});
 </script>
 
 <svelte:head>
@@ -46,7 +46,7 @@
 
 <RootLayout>
 	<div class="app">
-		<Actionbar {onNavChange} dataShow={showActionbar} />
+		<Actionbar dataShow={showActionbar} />
 		<div class="app-body {classAnimate}" data-show={showContent}>
 			<slot />
 		</div>
@@ -60,7 +60,7 @@
 
 	.app-body {
 		padding: 1rem;
-		min-height: calc(100dvh - 3.5rem);
+		min-height: calc(100dvh - var(--actionbar-height));
 
 		display: flex;
 		flex-direction: column;

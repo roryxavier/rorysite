@@ -4,8 +4,6 @@
 </script>
 
 <CardCenterLayout>
-	<span>Art Section</span>
-
 	<div class="arts">
 		<img src="https://res.jfrx.cf/rory/1.jpg?width={250}" />
 		<img src="https://res.jfrx.cf/rory/2.jpg?width={250}" />
@@ -16,10 +14,6 @@
 		<img src="https://res.jfrx.cf/rory/7.jpg?width={250}" />
 		<img src="https://res.jfrx.cf/rory/8.jpg?width={250}" />
 		<img src="https://res.jfrx.cf/rory/9.jpg?width={250}" />
-	</div>
-
-	<div class="pager">
-		<PageButton title="Project Created" href="/project" />
 	</div>
 </CardCenterLayout>
 
@@ -39,14 +33,7 @@
 			min-width: max-content;
 			object-fit: cover;
 			border-radius: 0.5rem;
+			border: 1px solid rgba(0, 0, 0, 0.05);
 		}
-	}
-	.pager {
-		display: flex;
-		flex-direction: row;
-		align-items: stretch;
-		justify-content: flex-start;
-
-		gap: 1em;
 	}
 </style>

@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { onDestroy, onMount } from 'svelte';
+	import { onMount } from 'svelte';
 	import type { Nav } from './Nav.ts';
 	import Logo from '@/resource/avatar.webp';
+	import { afterNavigate } from '$app/navigation';
 
-	export let onNavChange = (nav: Nav) => {};
 	export let dataShow = false;
 
 	const navs: Nav[] = [
@@ -24,8 +24,11 @@
 		windowScrollTop = window.scrollY;
 	}
 
+	afterNavigate(resetPathname);
+
 	onMount(() => {
 		resetPathname();
+		onScroll();
 		window.addEventListener('scroll', onScroll);
 	});
 </script>
@@ -38,14 +41,7 @@
 >
 	<div class="actionbar-navs">
 		{#each navs as nav}
-			<a
-				href={nav.path}
-				data-selected={pathname === nav.path}
-				on:click={() => {
-					resetPathname();
-					onNavChange(nav);
-				}}>{nav.title}</a
-			>
+			<a href={nav.path} data-selected={pathname === nav.path}>{nav.title}</a>
 		{/each}
 	</div>
 
@@ -65,7 +61,7 @@
 		align-items: center;
 
 		width: 100%;
-		height: 4.5rem;
+		height: var(--actionbar-height);
 		color: white;
 		padding: 1rem;
 
@@ -109,8 +105,10 @@
 			z-index: 1;
 
 			& > * {
+				font-weight: 600;
 				padding: 0.6rem;
 				border-radius: 0.3rem;
+				text-align: center;
 				&[data-selected='true'] {
 					background: white;
 					color: black;

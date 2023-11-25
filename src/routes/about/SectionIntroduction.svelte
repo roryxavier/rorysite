@@ -4,8 +4,6 @@
 </script>
 
 <CardCenterLayout>
-	<span>About Me</span>
-
 	<div>
 		<span>Introduction</span>
 		<p>
@@ -68,11 +66,6 @@
 			audience a more personal insight into who you are.
 		</p>
 	</div>
-
-	<div class="pager">
-		<PageButton title="Home" href="/" />
-		<PageButton title="Project Created" href="/project" />
-	</div>
 </CardCenterLayout>
 
 <style scoped lang="scss">
@@ -85,14 +78,7 @@
 		& > span {
 			color: #1e3a8a;
 			font-weight: 600;
+			font-size: 1.2rem;
 		}
-	}
-	.pager {
-		display: flex;
-		flex-direction: row;
-		align-items: stretch;
-		justify-content: space-between;
-
-		gap: 1em;
 	}
 </style>
