@@ -1,9 +1,8 @@
 <script>
-	import CardCenterLayout from '@/component/CardCenterLayout.svelte';
-	import ImageRoryWolf from '@/resource/project/rorywolf.png';
-	import ImageFoxyWolf from '@/resource/project/foxywolf.png';
-	import ImageRefRoryWolf from '@/resource/project/refrorywolf.png';
-	import PageButton from '@/component/PageButton.svelte';
+	import CardCenterLayout from '@/components/CardCenterLayout.svelte';
+	import ImageRoryWolf from '@/assets/project/rorywolf.png';
+	import ImageFoxyWolf from '@/assets/project/foxywolf.png';
+	import ImageRefRoryWolf from '@/assets/project/refrorywolf.png';
 
 	const projects = [
 		{
@@ -28,22 +27,22 @@
 </script>
 
 <CardCenterLayout>
-	<div class="projects">
+	<div class="section-project">
 		{#each projects as project}
-			<div class="project">
-				<a class="project-title" href={project.link}>{project.title}</a>
-				<a class="project-image" href={project.link}>
+			<div>
+				<a class="section-project-title" href={project.link}>{project.title}</a>
+				<a class="section-project-image" href={project.link}>
 					<img src={project.image} alt={project.title} />
 				</a>
 
-				<div class="project-links">
+				<div class="section-project-links">
 					<a
-						class="project-link bg-blue-100 focus:bg-blue-200 hover:bg-blue-200 text-blue-900 rounded-xl overflow-hidden transition"
+						class="section-project-link bg-blue-100 focus:bg-blue-200 hover:bg-blue-200 text-blue-900 rounded-xl overflow-hidden transition"
 						href={project.link}
 						target="_blank">Website</a
 					>
 					<a
-						class="project-link bg-blue-100 focus:bg-blue-200 hover:bg-blue-200 text-blue-900 rounded-xl overflow-hidden transition"
+						class="section-project-link bg-blue-100 focus:bg-blue-200 hover:bg-blue-200 text-blue-900 rounded-xl overflow-hidden transition"
 						href={project.githubLink}
 						target="_blank">Github Repository</a
 					>
@@ -54,43 +53,43 @@
 </CardCenterLayout>
 
 <style scoped lang="scss">
-	.projects {
+	.section-project {
 		display: flex;
 		flex-direction: column;
 		align-items: stretch;
 
 		gap: 2rem;
-	}
 
-	.project {
-		display: flex;
-		flex-direction: column;
-		align-items: flex-start;
-		gap: 0.5rem;
-
-		.project-image {
-			& > img {
-				border-radius: 0.8em;
-			}
-		}
-		.project-title {
-			font-size: 1.4rem;
-			font-weight: 600;
-			color: #1e3a8a;
-			&:hover {
-				text-decoration: underline;
-			}
-		}
-		.project-links {
-			width: 100%;
+		& > div {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
 			gap: 0.5rem;
 
-			display: flex;
-			flex-direction: row;
-			align-items: flex-start;
+			.section-project-image {
+				& > img {
+					border-radius: 0.8em;
+				}
+			}
+			.section-project-title {
+				font-size: 1.4rem;
+				font-weight: 600;
+				color: #1e3a8a;
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+			.section-project-links {
+				width: 100%;
+				gap: 0.5rem;
 
-			.project-link {
-				padding: 0.8rem 1rem;
+				display: flex;
+				flex-direction: row;
+				align-items: flex-start;
+
+				.section-project-link {
+					padding: 0.8rem 1rem;
+				}
 			}
 		}
 	}

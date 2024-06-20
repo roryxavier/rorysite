@@ -1,44 +1,31 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import type { Nav } from './Nav.ts';
-	import Logo from '@/resource/avatar.webp';
+	import Logo from '@/assets/avatar.webp';
 	import { afterNavigate } from '$app/navigation';
+	import { ABOUT, ART, HOME, PROJECT, type Route } from '@/data/Route.js';
 
-	export let dataShow = false;
+	export let show: boolean;
+	export let showShadow: boolean;
 
-	const navs: Nav[] = [
-		{ path: '/', title: 'Home' },
-		{ path: '/about', title: 'About Me' },
-		{ path: '/project', title: 'Project Created' },
-		{ path: '/art', title: 'Art' }
-	];
+	const navs: Route[] = [HOME, ABOUT, PROJECT, ART];
 
 	let pathname = '';
 	let expand = true;
-	let windowScrollTop = 0;
 
-	function resetPathname() {
-		setTimeout(() => (pathname = window.location.pathname), 100);
+	async function resetPathname() {
+		const paths = window.location.pathname.split('/').filter((str) => str.length > 0);
+		pathname = `/${paths[0] ?? ''}`;
 	}
-	function onScroll() {
-		windowScrollTop = window.scrollY;
-	}
-
-	afterNavigate(resetPathname);
 
 	onMount(() => {
 		resetPathname();
-		onScroll();
-		window.addEventListener('scroll', onScroll);
+	});
+	afterNavigate(() => {
+		resetPathname();
 	});
 </script>
 
-<nav
-	class="actionbar"
-	data-show={dataShow}
-	data-expand={expand}
-	data-scroll-down={windowScrollTop > 0}
->
+<nav class="actionbar" data-show={show} data-expand={expand} data-scroll-down={showShadow}>
 	<div class="actionbar-navs">
 		{#each navs as nav}
 			<a href={nav.path} data-selected={pathname === nav.path}>{nav.title}</a>

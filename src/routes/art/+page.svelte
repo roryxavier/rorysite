@@ -1,5 +1,5 @@
 <script>
-	import Favicon from '@/resource/favicon.ico';
+	import Favicon from '@/assets/favicon.ico';
 	import SectionArt from '@/routes/art/SectionArt.svelte';
 </script>
 

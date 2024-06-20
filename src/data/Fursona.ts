@@ -1,6 +1,18 @@
-export default {
-	LABELS: ['He/Him', 'Wolf', 'Gay', 'Taken - 🦊', 'Programmer', 'Happy Go Lucky'],
-	SOCIAL_LINKS: [
+export interface SocialLink {
+	name: string;
+	alt: string;
+	img: string;
+	link: string;
+}
+
+export interface Fursona {
+	labels: string[];
+	socialLinks: SocialLink[];
+}
+
+export const RORY_CHRIS: Fursona = {
+	labels: ['He/Him', 'Wolf', 'Gay', 'Taken - 🦊', 'Programmer', 'Happy Go Lucky'],
+	socialLinks: [
 		{
 			name: '@roryxavier',
 			alt: 'Telegram',

@@ -1,19 +1,7 @@
-<div class="container">
-	<div class="bg" />
-	<slot />
-</div>
+<div class="background" />
 
 <style lang="css">
-	.container {
-		width: 100vw;
-		max-width: 100%;
-		height: 100%;
-		display: flex;
-		flex-direction: column;
-		align-items: stretch;
-		justify-content: stretch;
-	}
-	.bg {
+	.background {
 		width: 100vw;
 		height: 100lvh;
 

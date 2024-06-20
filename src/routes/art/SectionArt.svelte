@@ -1,10 +1,9 @@
 <script>
-	import CardCenterLayout from '@/component/CardCenterLayout.svelte';
-	import PageButton from '@/component/PageButton.svelte';
+	import CardCenterLayout from '@/components/CardCenterLayout.svelte';
 </script>
 
 <CardCenterLayout>
-	<div class="arts">
+	<div class="section-art">
 		<img src="https://res.jfrx.cf/rory/1.jpg?width={250}" />
 		<img src="https://res.jfrx.cf/rory/2.jpg?width={250}" />
 		<img src="https://res.jfrx.cf/rory/3.jpg?width={250}" />
@@ -18,7 +17,7 @@
 </CardCenterLayout>
 
 <style scoped lang="scss">
-	.arts {
+	.section-art {
 		width: 100%;
 		display: flex;
 		flex-direction: row;
