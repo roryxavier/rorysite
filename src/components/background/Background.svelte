@@ -4,6 +4,14 @@
 	.background {
 		width: 100vw;
 		height: 100lvh;
+		min-width: 100vw;
+		min-height: 100lvh;
+		max-width: 100vw;
+		max-height: 100lvh;
+
+		overflow: hidden;
+		pointer-events: none;
+		user-select: none;
 
 		position: fixed;
 		top: 0;

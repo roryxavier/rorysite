@@ -18,7 +18,7 @@
 				<h1>Rory!</h1>
 				<div class="card-labels">
 					{#each RORY_CHRIS.labels as label}
-						<div class="label">{label}</div>
+						<span class="label">{label}</span>
 					{/each}
 				</div>
 			</div>
@@ -102,7 +102,7 @@
 					background: #1e3a8a;
 					color: rgba(255, 255, 255, 0.9);
 					font-size: 0.6em;
-					padding: 0.4em 0.8em;
+					padding: 0.4em 0.6em;
 					line-height: 1;
 
 					display: flex;

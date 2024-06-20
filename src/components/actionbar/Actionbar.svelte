@@ -1,8 +1,9 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import Logo from '@/assets/avatar.webp';
 	import { afterNavigate } from '$app/navigation';
 	import { ABOUT, ART, HOME, PROJECT, type Route } from '@/data/Route.js';
+	import Nav from './Actionbar-Nav.svelte';
+	import Logo from './Actionbar-Logo.svelte';
 
 	export let show: boolean;
 	export let showShadow: boolean;
@@ -28,19 +29,15 @@
 <nav class="actionbar" data-show={show} data-expand={expand} data-scroll-down={showShadow}>
 	<div class="actionbar-navs">
 		{#each navs as nav}
-			<a href={nav.path} data-selected={pathname === nav.path}>{nav.title}</a>
+			<Nav route={nav} selected={pathname === nav.path} />
 		{/each}
 	</div>
 
-	<button class="actionbar-logo" on:click={() => (expand = !expand)}>
-		<img src={Logo} alt="Logo" />
-	</button>
+	<Logo toggleExpand={() => (expand = !expand)} />
 </nav>
 
 <style scoped lang="scss">
 	.actionbar {
-		width: 100vw;
-		max-width: 100%;
 		overflow: hidden;
 
 		display: flex;
@@ -49,8 +46,9 @@
 
 		width: 100%;
 		height: var(--actionbar-height);
-		color: white;
 		padding: 1rem;
+
+		color: white;
 
 		position: sticky;
 		top: 0;
@@ -86,49 +84,10 @@
 			flex-direction: row;
 			align-items: center;
 			flex-grow: 1;
-			gap: 0.5rem;
+			gap: 0.1rem;
 			transition: all 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
 			transition: all 600ms ease;
 			z-index: 1;
-
-			& > * {
-				font-weight: 600;
-				padding: 0.6rem;
-				border-radius: 0.3rem;
-				text-align: center;
-				&[data-selected='true'] {
-					background: white;
-					color: black;
-				}
-			}
-		}
-		.actionbar-logo {
-			border-radius: 50%;
-			overflow: hidden;
-			z-index: 2;
-
-			display: flex;
-			align-items: center;
-			justify-content: center;
-
-			--size: 3rem;
-			width: var(--size);
-			height: var(--size);
-			min-width: var(--size);
-			min-height: var(--size);
-			max-width: var(--size);
-			max-height: var(--size);
-
-			& > img {
-				width: var(--size);
-				height: var(--size);
-				min-width: var(--size);
-				min-height: var(--size);
-				max-width: var(--size);
-				max-height: var(--size);
-				object-fit: contain;
-				display: flex;
-			}
 		}
 	}
 </style>

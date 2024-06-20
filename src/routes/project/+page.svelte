@@ -8,18 +8,18 @@
 	<title>Rory!</title>
 </svelte:head>
 
-<div class="home-page">
+<div class="project-page">
 	<SectionProject />
 </div>
 
 <style scoped lang="scss">
-	.home-page {
+	.project-page {
 		width: 100%;
+		gap: 1rem;
+
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		text-align: center;
-
-		gap: 1rem;
 	}
 </style>

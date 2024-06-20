@@ -9,18 +9,8 @@
 }
 
 body {
-	--actionbar-height: 4.5rem;
-
 	min-height: 100dvh;
-	max-height: 100dvh;
-	position: relative;
-	overflow-y: auto;
-
-	display: flex;
-	flex-direction: column;
 }
 .index {
-	display: flex;
-	flex-direction: column;
-	align-items: stretch;
+	min-height: 100dvh;
 }

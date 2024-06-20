@@ -66,11 +66,14 @@
 
 <style scoped lang="scss">
 	.app {
+		--actionbar-height: 4.5rem;
+
 		min-height: 100dvh;
 
 		.app-body {
+			width: 100%;
+			min-height: calc(100dvh - var(--actionbar-height) - 3px);
 			padding: 1rem;
-			min-height: calc(100dvh - var(--actionbar-height));
 
 			display: flex;
 			flex-direction: column;
@@ -78,12 +81,14 @@
 			justify-content: center;
 
 			transition: all 0.4s ease;
-			transform: scale(1.1) translateY(4rem);
-			opacity: 0;
 
+			&[data-show='false'] {
+				opacity: 0;
+				transform: scale(0.9) translateY(4rem);
+			}
 			&[data-show='true'] {
 				opacity: 1;
-				transform: translateY(0);
+				transform: scale(1) translateY(0);
 			}
 			&[data-start-animate='true'] {
 				transform: translateY(0.2rem);
