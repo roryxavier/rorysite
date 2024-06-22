@@ -5,12 +5,14 @@
 	import '../app.css';
 	import { afterNavigate, beforeNavigate } from '$app/navigation';
 	import Background from '@/components/background/Background.svelte';
+	import PopupNavigation from '@/components/popup-navigation/PopupNavigation.svelte';
 
 	let showActionbar = false;
 	let showContent = false;
 	let startAnimate = false;
 
 	let scrollTop = 0;
+	let showingPopupNavigation = false;
 
 	function onScroll() {
 		scrollTop = window.scrollY;
@@ -58,10 +60,18 @@
 
 <div class="app">
 	<Background />
-	<Actionbar show={showActionbar} showShadow={scrollTop > 0} />
+
+	<Actionbar
+		show={showActionbar}
+		showShadow={scrollTop > 0}
+		toggleMenu={() => (showingPopupNavigation = !showingPopupNavigation)}
+	/>
+
 	<div class="app-body" data-show={showContent} data-start-animate={startAnimate}>
 		<slot />
 	</div>
+
+	<PopupNavigation show={showingPopupNavigation} />
 </div>
 
 <style scoped lang="scss">

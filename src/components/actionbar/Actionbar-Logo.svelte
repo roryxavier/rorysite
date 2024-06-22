@@ -1,10 +1,10 @@
 <script lang="ts">
 	import Logo from '@/assets/avatar.webp';
 
-	export let toggleExpand: () => void;
+	export let click: () => void;
 </script>
 
-<button class="actionbar-logo" on:click={toggleExpand}>
+<button class="actionbar-logo" on:click={click}>
 	<img src={Logo} alt="Logo" />
 </button>
 

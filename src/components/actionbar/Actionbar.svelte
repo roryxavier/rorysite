@@ -7,11 +7,11 @@
 
 	export let show: boolean;
 	export let showShadow: boolean;
+	export let toggleMenu: () => void;
 
 	const navs: Route[] = [HOME, ABOUT, PROJECT, ART];
 
 	let pathname = '';
-	let expand = true;
 
 	async function resetPathname() {
 		const paths = window.location.pathname.split('/').filter((str) => str.length > 0);
@@ -26,14 +26,14 @@
 	});
 </script>
 
-<nav class="actionbar" data-show={show} data-expand={expand} data-scroll-down={showShadow}>
+<nav class="actionbar" data-show={show} data-scroll-down={showShadow}>
 	<div class="actionbar-navs">
 		{#each navs as nav}
 			<Nav route={nav} selected={pathname === nav.path} />
 		{/each}
 	</div>
 
-	<Logo toggleExpand={() => (expand = !expand)} />
+	<Logo click={toggleMenu} />
 </nav>
 
 <style scoped lang="scss">
@@ -57,21 +57,11 @@
 		transition: all 0.4s ease;
 		opacity: 0;
 		transform: translateY(-100%);
+
 		&[data-show='true'] {
 			opacity: 1;
 			transform: translateY(0);
 			gap: 1rem;
-		}
-
-		&[data-expand='false'] {
-			.actionbar-navs {
-				transform: translateX(calc(75vw - 10rem)) rotateY(90deg) scale(0.5);
-			}
-		}
-		&[data-expand='true'] {
-			.actionbar-navs {
-				transform: translateX(0);
-			}
 		}
 
 		&[data-scroll-down='true'] {
