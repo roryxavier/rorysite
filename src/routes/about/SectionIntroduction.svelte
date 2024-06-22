@@ -85,8 +85,8 @@
 			text-align: start;
 
 			& > span {
-				color: #1e3a8a;
-				font-weight: 600;
+				color: var(--primary-color);
+				font-weight: 700;
 				font-size: 1.2rem;
 			}
 		}

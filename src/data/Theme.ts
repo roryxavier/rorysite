@@ -36,20 +36,18 @@ export function toggleTheme(): Theme {
 export function onThemeChange(): void {
 	const theme = getTheme();
 	const html = document.querySelector('html');
-	const isDark = html?.classList.contains('dark');
 
 	switch (theme.key) {
 		case LightTheme.key:
-			if (isDark) {
-				html?.classList.remove('dark');
-				html?.style.setProperty('color-scheme', 'light');
-			}
+			html?.classList.add('light');
+			html?.classList.remove('dark');
+			html?.style.setProperty('color-scheme', 'light');
+
 			break;
 		case DarkTheme.key:
-			if (!isDark) {
-				html?.classList.add('dark');
-				html?.style.setProperty('color-scheme', 'dark');
-			}
+			html?.classList.remove('light');
+			html?.classList.add('dark');
+			html?.style.setProperty('color-scheme', 'dark');
 			break;
 	}
 }

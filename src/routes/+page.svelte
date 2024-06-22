@@ -38,11 +38,7 @@
 
 		<div class="socials">
 			{#each RORY_CHRIS.socialLinks as link}
-				<a
-					href={link.link}
-					target="_blank"
-					class="bg-blue-100 focus:bg-blue-200 hover:bg-blue-200 text-blue-900 rounded-xl overflow-hidden transition"
-				>
+				<a href={link.link} target="_blank" class="rounded-xl overflow-hidden transition">
 					<img alt={link.name} src={link.img} />
 					<span>{link.name}</span>
 				</a>
@@ -53,13 +49,12 @@
 
 <style scoped lang="scss">
 	.home-page {
+		gap: 1rem;
 		width: 100%;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		text-align: center;
-
-		gap: 1rem;
 	}
 
 	.card-header {
@@ -83,7 +78,7 @@
 
 			& > h1 {
 				font-weight: 700;
-				color: rgb(30 58 138);
+				color: var(--primary-color);
 				line-height: 1;
 				text-align: inherit;
 				font-size: 2.5rem;
@@ -99,8 +94,9 @@
 
 				.label {
 					min-width: max-content;
-					background: #1e3a8a;
-					color: rgba(255, 255, 255, 0.9);
+					background: var(--primary-color);
+					color: white;
+
 					font-size: 0.6em;
 					padding: 0.4em 0.6em;
 					line-height: 1;
@@ -165,6 +161,13 @@
 
 			padding: 1rem;
 			gap: 0.75rem;
+
+			background-color: var(--primary-color-light);
+			color: var(--primary-color-dark);
+			&:hover,
+			&:focus {
+				background-color: var(--primary-color-lighter);
+			}
 
 			& > img {
 				aspect-ratio: 1/1;

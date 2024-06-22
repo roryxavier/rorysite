@@ -4,5 +4,6 @@ module.exports = {
 	theme: {
 		extend: {}
 	},
-	plugins: []
+	plugins: [],
+	darkMode: ['@media (prefers-color-scheme: dark)']
 };

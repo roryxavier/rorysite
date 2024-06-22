@@ -13,7 +13,7 @@
 		max-width: 50rem;
 		row-gap: 1.5rem;
 
-		background: white;
+		background: var(--background-color);
 		border-radius: 1rem;
 		transition: all 400ms ease;
 

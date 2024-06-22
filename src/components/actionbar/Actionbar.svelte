@@ -13,6 +13,10 @@
 
 	let pathname = '';
 
+	$: currentRoute = (() => {
+		return navs.find((nav) => nav.path === pathname);
+	})();
+
 	async function resetPathname() {
 		const paths = window.location.pathname.split('/').filter((str) => str.length > 0);
 		pathname = `/${paths[0] ?? ''}`;
@@ -27,6 +31,10 @@
 </script>
 
 <nav class="actionbar" data-show={show} data-scroll-down={showShadow}>
+	{#if currentRoute}
+		<span class="actionbar-title">{currentRoute.title}</span>
+	{/if}
+
 	<div class="actionbar-navs">
 		{#each navs as nav}
 			<Nav route={nav} selected={pathname === nav.path} />
@@ -49,6 +57,7 @@
 		padding: 1rem;
 
 		color: white;
+		border: 1px solid transparent;
 
 		position: sticky;
 		top: 0;
@@ -66,7 +75,30 @@
 
 		&[data-scroll-down='true'] {
 			box-shadow: 0 0 2rem rgba(0, 0, 0, 0.2);
-			background: black;
+			border-color: rgba(255, 255, 255, 0.05);
+			background-color: black;
+
+			color: var(--primary-color-darker);
+			background-color: var(--primary-color-extra-light);
+
+			.actionbar-title {
+				color: var(--primary-color-extra-darker);
+			}
+		}
+
+		.actionbar-title {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			flex-grow: 1;
+
+			color: white;
+			font-weight: 700;
+			font-size: 1.25rem;
+
+			@media (min-width: 700px) {
+				display: none;
+			}
 		}
 
 		.actionbar-navs {
@@ -75,9 +107,12 @@
 			align-items: center;
 			flex-grow: 1;
 			gap: 0.1rem;
-			transition: all 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
-			transition: all 600ms ease;
+			transition: all 400ms ease;
 			z-index: 1;
+
+			@media (max-width: 699px) {
+				display: none;
+			}
 		}
 	}
 </style>

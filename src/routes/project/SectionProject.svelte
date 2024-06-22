@@ -36,16 +36,12 @@
 				</a>
 
 				<div class="section-project-links">
-					<a
-						class="section-project-link bg-blue-100 focus:bg-blue-200 hover:bg-blue-200 text-blue-900 rounded-xl overflow-hidden transition"
-						href={project.link}
-						target="_blank">Website</a
-					>
-					<a
-						class="section-project-link bg-blue-100 focus:bg-blue-200 hover:bg-blue-200 text-blue-900 rounded-xl overflow-hidden transition"
-						href={project.githubLink}
-						target="_blank">Github Repository</a
-					>
+					<a class="rounded overflow-hidden transition" href={project.link} target="_blank">
+						Website
+					</a>
+					<a class="rounded overflow-hidden transition" href={project.githubLink} target="_blank">
+						Github Repository
+					</a>
 				</div>
 			</div>
 		{/each}
@@ -73,8 +69,8 @@
 			}
 			.section-project-title {
 				font-size: 1.4rem;
-				font-weight: 600;
-				color: #1e3a8a;
+				font-weight: 700;
+				color: var(--primary-color);
 				&:hover {
 					text-decoration: underline;
 				}
@@ -87,8 +83,16 @@
 				flex-direction: row;
 				align-items: flex-start;
 
-				.section-project-link {
-					padding: 0.8rem 1rem;
+				& > * {
+					font-size: 0.8rem;
+					font-weight: 600;
+					padding: 0.4rem 0.8rem;
+					background-color: var(--primary-color-light);
+					color: var(--primary-color);
+					&:hover,
+					&:focus {
+						background-color: var(--primary-color-lighter);
+					}
 				}
 			}
 		}
