@@ -48,7 +48,7 @@
 	</div>
 </CardCenterLayout>
 
-<style scoped lang="scss">
+<style lang="scss">
 	.section-project {
 		display: flex;
 		flex-direction: column;

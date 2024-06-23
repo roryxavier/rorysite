@@ -1,14 +1,12 @@
 <script lang="ts">
 	import Logo from '@/assets/avatar.webp';
-
-	export let click: () => void;
 </script>
 
-<button class="actionbar-logo" on:click={click}>
+<div class="actionbar-logo">
 	<img src={Logo} alt="Logo" />
-</button>
+</div>
 
-<style scoped lang="scss">
+<style lang="scss">
 	.actionbar-logo {
 		border-radius: 50%;
 		overflow: hidden;

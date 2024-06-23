@@ -7,7 +7,7 @@
 
 <a class="popup-navigation-nav" href={route.path} data-selected={selected}>{route.title}</a>
 
-<style scoped lang="scss">
+<style lang="scss">
 	.popup-navigation-nav {
 		font-weight: 600;
 		padding: 0.6rem 0.8rem;

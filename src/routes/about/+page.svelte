@@ -12,7 +12,7 @@
 	<SectionIntroduction />
 </div>
 
-<style scoped lang="scss">
+<style lang="scss">
 	.about-page {
 		width: 100%;
 		gap: 1rem;

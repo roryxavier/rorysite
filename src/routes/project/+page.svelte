@@ -12,7 +12,7 @@
 	<SectionProject />
 </div>
 
-<style scoped lang="scss">
+<style lang="scss">
 	.project-page {
 		width: 100%;
 		gap: 1rem;

@@ -1,8 +1,9 @@
 <script>
 	import Favicon from '@/assets/favicon.ico';
-	import Avatar from '@/assets/avatar.webp';
 	import CardCenterLayout from '@/components/CardCenterLayout.svelte';
 	import { RORY_CHRIS } from '@/data/Fursona';
+	import SocialLink from './SocialLink.svelte';
+	import Header from './Header.svelte';
 </script>
 
 <svelte:head>
@@ -12,22 +13,12 @@
 
 <div class="home-page">
 	<CardCenterLayout>
-		<div class="card-header">
-			<img src={Avatar} alt="Avatar" />
-			<div class="card-content">
-				<h1>Rory!</h1>
-				<div class="card-labels">
-					{#each RORY_CHRIS.labels as label}
-						<span class="label">{label}</span>
-					{/each}
-				</div>
-			</div>
-		</div>
+		<Header />
 
 		<div class="flex flex-col m-auto text-justify text-base space-y-4">
 			<p>
 				Hey there! Thanks for dropping by my site. My name's
-				<span class="text-blue-900 font-bold">Rory</span>
+				<b>Rory</b>
 				and I'm a Blue Wolf currently hanging out in Singapore.
 			</p>
 			<p>
@@ -38,16 +29,13 @@
 
 		<div class="socials">
 			{#each RORY_CHRIS.socialLinks as link}
-				<a href={link.link} target="_blank" class="rounded-xl overflow-hidden transition">
-					<img alt={link.name} src={link.img} />
-					<span>{link.name}</span>
-				</a>
+				<SocialLink socialLink={link} />
 			{/each}
 		</div>
 	</CardCenterLayout>
 </div>
 
-<style scoped lang="scss">
+<style lang="scss">
 	.home-page {
 		gap: 1rem;
 		width: 100%;
@@ -55,88 +43,12 @@
 		flex-direction: column;
 		align-items: center;
 		text-align: center;
-	}
 
-	.card-header {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-
-		& > img {
-			aspect-ratio: 1/1;
-			border-radius: 50%;
-			transition: all 400ms ease;
-			--size: 9rem;
-			width: var(--size);
-		}
-		.card-content {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			text-align: inherit;
-			gap: 1rem;
-
-			& > h1 {
-				font-weight: 700;
-				color: var(--primary-color);
-				line-height: 1;
-				text-align: inherit;
-				font-size: 2.5rem;
-			}
-			.card-labels {
-				display: flex;
-				flex-direction: row;
-				flex-wrap: wrap;
-				align-items: center;
-				justify-content: center;
-				width: 50%;
-				gap: 0.2em;
-
-				.label {
-					min-width: max-content;
-					background: var(--primary-color);
-					color: white;
-
-					font-size: 0.6em;
-					padding: 0.4em 0.6em;
-					line-height: 1;
-
-					display: flex;
-					align-items: center;
-					justify-content: center;
-					border-radius: 2em;
-				}
-			}
-		}
-
-		@media (min-width: 550px) {
-			flex-direction: row;
-			align-items: flex-start;
-			justify-content: flex-start;
-			text-align: start;
-			gap: 1rem;
-
-			& > img {
-				--size: 10rem;
-			}
-
-			.card-content {
-				align-items: flex-start;
-				& > h1 {
-					font-size: 3rem;
-				}
-				.card-labels {
-					width: 100%;
-					justify-content: flex-start;
-					gap: 0.3em;
-
-					.label {
-						font-size: 0.7rem;
-					}
-				}
-			}
+		b {
+			color: var(--primary-color-dark);
 		}
 	}
+
 	.socials {
 		width: 100%;
 		gap: 0.5rem;
@@ -147,39 +59,6 @@
 		@media (min-width: 450px) {
 			display: grid;
 			grid-template-columns: repeat(auto-fit, minmax(12.5rem, 1fr));
-		}
-
-		& > * {
-			display: flex;
-			flex-direction: row;
-			align-items: center;
-			justify-content: flex-start;
-			text-align: start;
-
-			line-height: 1.2;
-			font-weight: 600;
-
-			padding: 1rem;
-			gap: 0.75rem;
-
-			background-color: var(--primary-color-light);
-			color: var(--primary-color-dark);
-			&:hover,
-			&:focus {
-				background-color: var(--primary-color-lighter);
-			}
-
-			& > img {
-				aspect-ratio: 1/1;
-				width: 1.5em;
-				height: 1.5em;
-				display: flex;
-				object-fit: contain;
-			}
-			& > span {
-				width: 100%;
-				flex-grow: 1;
-			}
 		}
 	}
 </style>

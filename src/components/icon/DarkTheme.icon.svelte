@@ -16,7 +16,7 @@
 	/>
 </svg>
 
-<style scoped lang="scss">
+<style lang="scss">
 	.dark-theme {
 		path {
 			--color: var(--color-active);

@@ -36,13 +36,13 @@
 	<PopupNavigationTheme {themeKey} {clickTheme} />
 </div>
 
-<style scoped lang="scss">
+<style lang="scss">
 	.popup-navigation {
 		--margin: 1rem;
 
 		position: fixed;
 		top: calc(var(--actionbar-height) + calc(var(--margin) * 0.5));
-		right: var(--margin);
+		left: var(--margin);
 
 		width: 12rem;
 		max-width: calc(100% - var(--margin) - var(--margin));
@@ -78,7 +78,7 @@
 		}
 
 		&[data-show='false'] {
-			transform: translateX(35%) translateY(calc(-50% - calc(var(--actionbar-height) / 2)))
+			transform: translateX(-35%) translateY(calc(-50% - calc(var(--actionbar-height) / 2)))
 				scale(0.1);
 
 			opacity: 0;

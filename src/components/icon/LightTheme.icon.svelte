@@ -55,7 +55,7 @@
 	</defs>
 </svg>
 
-<style scoped lang="scss">
+<style lang="scss">
 	.light-theme {
 		path {
 			--color: var(--color-active);

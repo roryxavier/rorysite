@@ -7,11 +7,10 @@
 
 <a class="actionbar-nav" href={route.path} data-selected={selected}>{route.title}</a>
 
-<style scoped lang="scss">
+<style lang="scss">
 	.actionbar-nav {
 		font-weight: 700;
 		padding: 0.6rem 1.2rem;
-		border-radius: 0.3rem;
 		border-radius: 2em;
 		text-align: center;
 		border: 1px solid transparent;

@@ -2,7 +2,7 @@
 	<slot />
 </div>
 
-<style scoped lang="scss">
+<style lang="scss">
 	.card-center-layout {
 		display: flex;
 		flex-direction: column;

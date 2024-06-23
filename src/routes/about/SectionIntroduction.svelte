@@ -69,7 +69,7 @@
 	</div>
 </CardCenterLayout>
 
-<style scoped lang="scss">
+<style lang="scss">
 	.section-introduction {
 		gap: 1.5rem;
 

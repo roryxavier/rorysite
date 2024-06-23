@@ -12,7 +12,7 @@
 	<SectionArt />
 </div>
 
-<style scoped lang="scss">
+<style lang="scss">
 	.art-page {
 		width: 100%;
 		gap: 1rem;

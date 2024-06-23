@@ -4,6 +4,7 @@
 	import { ABOUT, ART, HOME, PROJECT, type Route } from '@/data/Route.js';
 	import Nav from './Actionbar-Nav.svelte';
 	import Logo from './Actionbar-Logo.svelte';
+	import HamburgerIcon from '@/components/icon/Hamburger.icon.svelte';
 
 	export let show: boolean;
 	export let showShadow: boolean;
@@ -30,7 +31,11 @@
 	});
 </script>
 
-<nav class="actionbar" data-show={show} data-scroll-down={showShadow}>
+<nav class="actionbar" data-show={show} data-scroll-down={`${showShadow}`}>
+	<button class="actionbar-hamburger" on:click={toggleMenu}>
+		<HamburgerIcon size={20} />
+	</button>
+
 	{#if currentRoute}
 		<span class="actionbar-title">{currentRoute.title}</span>
 	{/if}
@@ -41,58 +46,67 @@
 		{/each}
 	</div>
 
-	<Logo click={toggleMenu} />
+	<Logo />
 </nav>
 
-<style scoped lang="scss">
+<style lang="scss">
 	.actionbar {
-		overflow: hidden;
-
 		display: flex;
 		flex-direction: row;
 		align-items: center;
+
+		position: sticky;
+		top: 0;
+		z-index: 2;
+		overflow: hidden;
 
 		width: 100%;
 		height: var(--actionbar-height);
 		padding: 1rem;
 
-		color: white;
 		border: 1px solid transparent;
 
-		position: sticky;
-		top: 0;
-		z-index: 2;
-
 		transition: all 0.4s ease;
-		opacity: 0;
-		transform: translateY(-100%);
 
+		&[data-show='false'] {
+			opacity: 0;
+			transform: translateY(-100%);
+			gap: 0;
+		}
 		&[data-show='true'] {
 			opacity: 1;
 			transform: translateY(0);
 			gap: 1rem;
 		}
 
+		&[data-scroll-down='false'] {
+			--color: white;
+			color: white;
+		}
 		&[data-scroll-down='true'] {
 			box-shadow: 0 0 2rem rgba(0, 0, 0, 0.2);
 			border-color: rgba(255, 255, 255, 0.05);
-			background-color: black;
-
-			color: var(--primary-color-darker);
 			background-color: var(--primary-color-extra-light);
-
-			.actionbar-title {
-				color: var(--primary-color-extra-darker);
-			}
+			--color: var(--primary-color-dark);
+			color: var(--primary-color-dark);
 		}
 
+		.actionbar-hamburger {
+			--size: 2.5rem;
+			width: var(--size);
+			height: var(--size);
+			aspect-ratio: 1/1;
+			border-radius: 50%;
+
+			display: grid;
+			place-items: center;
+		}
 		.actionbar-title {
 			display: flex;
 			flex-direction: row;
 			align-items: center;
 			flex-grow: 1;
 
-			color: white;
 			font-weight: 700;
 			font-size: 1.25rem;
 
@@ -100,7 +114,6 @@
 				display: none;
 			}
 		}
-
 		.actionbar-navs {
 			display: flex;
 			flex-direction: row;

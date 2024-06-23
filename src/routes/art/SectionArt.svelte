@@ -16,7 +16,7 @@
 	</div>
 </CardCenterLayout>
 
-<style scoped lang="scss">
+<style lang="scss">
 	.section-art {
 		width: 100%;
 		display: flex;
