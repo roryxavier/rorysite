@@ -1,6 +1,6 @@
 <script>
 	import Avatar from '@/assets/avatar.webp';
-	import { RORY_CHRIS } from '@/data/Fursona';
+	import { RORY_CHRIS_FURSONA } from '@/models/Fursona.model';
 	import Label from './Label.svelte';
 </script>
 
@@ -10,7 +10,7 @@
 	<div class="card-content">
 		<h1>Rory!</h1>
 		<div class="card-labels">
-			{#each RORY_CHRIS.labels as label}
+			{#each RORY_CHRIS_FURSONA.labels as label}
 				<Label {label} />
 			{/each}
 		</div>

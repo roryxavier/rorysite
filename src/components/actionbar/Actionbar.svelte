@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { afterNavigate } from '$app/navigation';
-	import { ABOUT, ART, HOME, PROJECT, type Route } from '@/data/Route.js';
+	import { ABOUT_ROUTE, ART_ROUTE, HOME_ROUTE, PROJECT_ROUTE, type RouteModel } from '@/models/Route.model.js';
 	import Nav from './Actionbar-Nav.svelte';
 	import Logo from './Actionbar-Logo.svelte';
 	import HamburgerIcon from '@/components/icon/Hamburger.icon.svelte';
@@ -10,7 +10,7 @@
 	export let showShadow: boolean;
 	export let toggleMenu: () => void;
 
-	const navs: Route[] = [HOME, ABOUT, PROJECT, ART];
+	const navs: RouteModel[] = [HOME_ROUTE, ABOUT_ROUTE, PROJECT_ROUTE, ART_ROUTE].filter((route) => !route.isDisabled);
 
 	let pathname = '';
 

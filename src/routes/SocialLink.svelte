@@ -1,7 +1,7 @@
 <script lang="ts">
-	import type { SocialLink } from '@/data/Fursona';
+	import type { SocialLinkModel } from '@/models/SocialLink.model';
 
-	export let socialLink: SocialLink;
+	export let socialLink: SocialLinkModel;
 </script>
 
 <a class="social-link rounded-xl overflow-hidden transition" href={socialLink.link} target="_blank">

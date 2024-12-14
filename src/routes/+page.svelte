@@ -1,7 +1,7 @@
 <script>
 	import Favicon from '@/assets/favicon.ico';
 	import CardCenterLayout from '@/components/CardCenterLayout.svelte';
-	import { RORY_CHRIS } from '@/data/Fursona';
+	import { RORY_CHRIS_FURSONA } from '@/models/Fursona.model';
 	import SocialLink from './SocialLink.svelte';
 	import Header from './Header.svelte';
 </script>
@@ -28,7 +28,7 @@
 		</div>
 
 		<div class="socials">
-			{#each RORY_CHRIS.socialLinks as link}
+			{#each RORY_CHRIS_FURSONA.socialLinks as link}
 				<SocialLink socialLink={link} />
 			{/each}
 		</div>

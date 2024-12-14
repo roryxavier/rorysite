@@ -9,20 +9,20 @@
 			image: ImageRefRoryWolf,
 			title: 'Rory Ref Site',
 			link: 'https://ref.rorywolf.net/',
-			githubLink: 'https://github.com/roryxavier/roryrefsite'
+			githubLink: 'https://github.com/roryxavier/roryrefsite',
 		},
 		{
 			image: ImageFoxyWolf,
 			title: 'Foxy Wolf Site',
 			link: 'https://foxywolf.net/',
-			githubLink: 'https://github.com/roryxavier/foxywolfsite'
+			githubLink: 'https://github.com/roryxavier/foxywolfsite',
 		},
 		{
 			image: ImageRoryWolf,
 			title: 'Rory Site',
 			link: 'https://rorywolf.net/',
-			githubLink: 'https://github.com/roryxavier/rorysite'
-		}
+			githubLink: 'https://github.com/roryxavier/rorysite',
+		},
 	];
 </script>
 

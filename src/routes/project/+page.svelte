@@ -1,6 +1,13 @@
 <script>
 	import Favicon from '@/assets/favicon.ico';
+	import { PROJECT_ROUTE } from '@/models/Route.model';
 	import SectionProject from '@/routes/project/SectionProject.svelte';
+	import { onMount } from 'svelte';
+	import { navigate } from 'svelte-routing';
+
+	onMount(() => {
+		if (PROJECT_ROUTE.isDisabled) navigate('/');
+	});
 </script>
 
 <svelte:head>

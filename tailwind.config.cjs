@@ -2,8 +2,8 @@
 module.exports = {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	theme: {
-		extend: {}
+		extend: {},
 	},
 	plugins: [],
-	darkMode: ['@media (prefers-color-scheme: dark)']
+	darkMode: ['@media (prefers-color-scheme: dark)'],
 };

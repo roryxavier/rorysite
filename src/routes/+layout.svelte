@@ -6,7 +6,7 @@
 	import { afterNavigate, beforeNavigate } from '$app/navigation';
 	import Background from '@/components/background/Background.svelte';
 	import PopupNavigation from '@/components/popup-navigation/PopupNavigation.svelte';
-	import { DarkTheme, getTheme, onThemeChange, toggleTheme } from '@/data/Theme';
+	import { DARK_THEME, getTheme, onThemeChange, toggleTheme } from '@/models/Theme.model';
 
 	let isMounted = false;
 
@@ -96,7 +96,7 @@
 </svelte:head>
 
 <div class="app" data-theme={themeKey}>
-	<Background darkMode={themeKey === DarkTheme.key} />
+	<Background darkMode={themeKey === DARK_THEME.key} />
 
 	<Actionbar
 		show={showActionbar}

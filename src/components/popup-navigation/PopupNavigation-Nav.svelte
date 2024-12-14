@@ -1,7 +1,7 @@
 <script lang="ts">
-	import type { Route } from '@/data/Route';
+	import type { RouteModel } from '@/models/Route.model';
 
-	export let route: Route;
+	export let route: RouteModel;
 	export let selected: boolean;
 </script>
 

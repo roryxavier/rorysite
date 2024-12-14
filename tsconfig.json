@@ -1,3 +1,4 @@
+// todo: tsconfig.json doesn't work while developing, only works with npm run check
 {
 	"extends": "./.svelte-kit/tsconfig.json",
 	"compilerOptions": {
@@ -12,7 +13,9 @@
 		"noUnusedLocals": true,
 		"paths": {
 			"@/*": ["./src/*"]
-		}
+		},
+
+		"importsNotUsedAsValues": "error"
 	}
 	// Path aliases are handled by https://kit.svelte.dev/docs/configuration#alias
 	//

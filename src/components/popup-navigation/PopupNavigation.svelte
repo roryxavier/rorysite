@@ -1,16 +1,16 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { afterNavigate } from '$app/navigation';
-	import type { Theme } from '@/data/Theme';
+	import type { ThemeModel } from '@/models/Theme.model';
 	import PopupNavigationTheme from './PopupNavigation-Theme.svelte';
 	import PopupNavigationNav from './PopupNavigation-Nav.svelte';
-	import { ABOUT, ART, HOME, PROJECT, type Route } from '@/data/Route.js';
+	import { ABOUT_ROUTE, ART_ROUTE, HOME_ROUTE, PROJECT_ROUTE, type RouteModel } from '@/models/Route.model.js';
 
 	export let show: boolean;
 	export let themeKey: string;
-	export let clickTheme: (theme: Theme) => void;
+	export let clickTheme: (theme: ThemeModel) => void;
 
-	const navs: Route[] = [HOME, ABOUT, PROJECT, ART];
+	const navs: RouteModel[] = [HOME_ROUTE, ABOUT_ROUTE, PROJECT_ROUTE, ART_ROUTE];
 
 	let pathname = '';
 

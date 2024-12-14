@@ -1,17 +1,17 @@
 <script lang="ts">
-	import { DarkTheme, LightTheme, type Theme } from '@/data/Theme';
+	import { DARK_THEME, LIGHT_THEME, type ThemeModel } from '@/models/Theme.model';
 	import DarkThemeIcon from '@/components/icon/DarkTheme.icon.svelte';
 	import LightThemeIcon from '@/components/icon/LightTheme.icon.svelte';
 
 	export let themeKey: string;
-	export let clickTheme: (theme: Theme) => void;
+	export let clickTheme: (theme: ThemeModel) => void;
 
 	$: index = (() => {
 		switch (themeKey) {
-			case LightTheme.key:
+			case LIGHT_THEME.key:
 			default:
 				return 0;
-			case DarkTheme.key:
+			case DARK_THEME.key:
 				return 1;
 		}
 	})();
@@ -19,17 +19,17 @@
 
 <div class="popup-navigation-theme" style="--item-index: {index}">
 	<button
-		aria-label={LightTheme.title}
-		data-selected={themeKey === LightTheme.key}
-		on:click={() => clickTheme(LightTheme)}
+		aria-label={LIGHT_THEME.title}
+		data-selected={themeKey === LIGHT_THEME.key}
+		on:click={() => clickTheme(LIGHT_THEME)}
 	>
 		<LightThemeIcon size={20} />
 	</button>
 
 	<button
-		aria-label={DarkTheme.title}
-		data-selected={themeKey === DarkTheme.key}
-		on:click={() => clickTheme(DarkTheme)}
+		aria-label={DARK_THEME.title}
+		data-selected={themeKey === DARK_THEME.key}
+		on:click={() => clickTheme(DARK_THEME)}
 	>
 		<DarkThemeIcon size={18} />
 	</button>
