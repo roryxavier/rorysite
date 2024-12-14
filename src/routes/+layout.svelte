@@ -143,7 +143,6 @@
 		}
 
 		--text-color: var(--text-color-a100);
-		--background-color: var(--background-color-a100);
 
 		&[data-theme='light'] {
 			--primary-color-extra-light: #eff2f7;
@@ -166,6 +165,8 @@
 			--background-color-a70: hsla(0, 0%, 100%, 0.7);
 			--background-color-a90: hsla(0, 0%, 100%, 0.9);
 			--background-color-a100: hsla(0, 0%, 100%, 1);
+
+			--background-color: hsl(240, 26%, 96%);
 		}
 		&[data-theme='dark'] {
 			--primary-color-lighter: #303a47;
@@ -193,6 +194,8 @@
 			--background-color-a70: hsla(0, 0%, 0%, 0.7);
 			--background-color-a90: hsla(0, 0%, 0%, 0.9);
 			--background-color-a100: hsla(0, 0%, 0%, 1);
+
+			--background-color: hsl(240, 3%, 6%);
 		}
 	}
 </style>

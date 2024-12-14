@@ -16,7 +16,6 @@
 		border: 1px solid transparent;
 
 		&[data-selected='true'] {
-			border: 1px solid var(--primary-color-light);
 			background-color: var(--primary-color-lighter);
 			color: var(--primary-color-darker);
 			cursor: default;
