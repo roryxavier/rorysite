@@ -1,83 +1,91 @@
 <script>
-	import Avatar from '@/assets/avatar.webp';
-	import { RORY_CHRIS_FURSONA } from '@/models/Fursona.model';
-	import Label from './Label.svelte';
+  import Avatar from '@/assets/avatar.webp';
+  import { RORY_CHRIS_FURSONA } from '@/models/Fursona.model';
+  import Label from './Label.svelte';
 </script>
 
 <div class="card-header">
-	<img src={Avatar} alt="Avatar" />
+  <img src={Avatar} alt="Avatar" />
 
-	<div class="card-content">
-		<h1>Rory!</h1>
-		<div class="card-labels">
-			{#each RORY_CHRIS_FURSONA.labels as label}
-				<Label {label} />
-			{/each}
-		</div>
-	</div>
+  <div class="card-content">
+    <h1>Rory!</h1>
+
+    <div class="card-labels">
+      {#each RORY_CHRIS_FURSONA.labels as label}
+        <Label {label} />
+      {/each}
+    </div>
+
+    <span class="card-next" title="Japan Meeting of Furries">
+      Next FURCON: <span title="Japan Meeting of Furries">JMoF</span>
+    </span>
+  </div>
 </div>
 
 <style lang="scss">
-	.card-header {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
+  .card-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-		& > img {
-			aspect-ratio: 1/1;
-			border-radius: 50%;
-			transition: all 400ms ease;
-			--size: 9rem;
-			width: var(--size);
-		}
+    & > img {
+      aspect-ratio: 1/1;
+      border-radius: 50%;
+      transition: all 400ms ease;
+      --size: 9rem;
+      width: var(--size);
+    }
 
-		.card-content {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			text-align: inherit;
-			gap: 1rem;
+    .card-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: inherit;
+      gap: 1rem;
 
-			& > h1 {
-				font-weight: 700;
-				color: var(--primary-color);
-				line-height: 1;
-				text-align: inherit;
-				font-size: 2.5rem;
-			}
-			.card-labels {
-				display: flex;
-				flex-direction: row;
-				flex-wrap: wrap;
-				align-items: center;
-				justify-content: center;
-				width: 50%;
-				gap: 0.2em;
-			}
-		}
+      & > h1 {
+        font-weight: 700;
+        color: var(--primary-color);
+        line-height: 1;
+        text-align: inherit;
+        font-size: 2.5rem;
+      }
+      .card-labels {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        width: 50%;
+        gap: 0.2em;
+      }
+      .card-next {
+        font-size: 0.8rem;
+      }
+    }
 
-		@media (min-width: 550px) {
-			flex-direction: row;
-			align-items: flex-start;
-			justify-content: flex-start;
-			text-align: start;
-			gap: 1rem;
+    @media (min-width: 550px) {
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: flex-start;
+      text-align: start;
+      gap: 1rem;
 
-			& > img {
-				--size: 10rem;
-			}
+      & > img {
+        --size: 10rem;
+      }
 
-			.card-content {
-				align-items: flex-start;
-				& > h1 {
-					font-size: 3rem;
-				}
-				.card-labels {
-					width: 100%;
-					justify-content: flex-start;
-					gap: 0.3em;
-				}
-			}
-		}
-	}
+      .card-content {
+        align-items: flex-start;
+        & > h1 {
+          font-size: 3rem;
+        }
+        .card-labels {
+          width: 100%;
+          justify-content: flex-start;
+          gap: 0.3em;
+        }
+      }
+    }
+  }
 </style>
