@@ -1,13 +1,5 @@
 import type { SocialLinkModel } from './SocialLink.model';
 
-import TELEGRAM_ICON from '@/assets/icon/telegram-color.svg';
-import PAINT_ICON from '@/assets/icon/paint-palette-with-brush.png';
-import BLUEKSY_ICON from '@/assets/icon/bluesky-color-gradient.svg';
-import TWITTER_ICON from '@/assets/icon/twitter-color.svg';
-import GITHUB_ICON from '@/assets/icon/github.svg';
-import DISCORD_ICON from '@/assets/icon/discord-color.svg';
-import LINK_ICON from '@/assets/icon/link.svg';
-
 export type FursonaModel = Readonly<{
   labels: string[];
   socialLinks: SocialLinkModel[];
@@ -19,43 +11,43 @@ export const RORY_CHRIS_FURSONA: FursonaModel = {
     {
       name: '@roryxavier',
       alt: 'Telegram',
-      img: TELEGRAM_ICON,
+      img: () => import('~icon/telegram-color.svg'),
       link: 'https://t.me/roryxavier',
     },
     {
       name: 'Reference Website',
       alt: 'Reference Site',
-      img: PAINT_ICON,
+      img: () => import('~icon/paint-palette-with-brush.png'),
       link: 'https://ref.rorywolf.net',
     },
     {
       name: '@roryxavier',
       alt: 'Bluesky',
-      img: BLUEKSY_ICON,
+      img: () => import('~icon/bluesky-color-gradient.svg'),
       link: 'https://bsky.app/profile/roryxavier.bsky.social',
     },
     {
       name: '@rory_xavi',
       alt: 'Twitter',
-      img: TWITTER_ICON,
+      img: () => import('~icon/twitter-color.svg'),
       link: 'https://twitter.com/rory_xavi',
     },
     {
       name: '@roryxavier',
       alt: 'Github',
-      img: GITHUB_ICON,
+      img: () => import('~icon/github.svg'),
       link: 'https://github.com/roryxavier',
     },
     {
       name: '@roryxavier',
       alt: 'Discord',
-      img: DISCORD_ICON,
+      img: () => import('~icon/discord-color.svg'),
       link: 'https://discordapp.com/users/525678985049538610',
     },
     {
       name: 'Telegram Sticker',
       alt: 'telegram sticker link',
-      img: LINK_ICON,
+      img: () => import('~icon/link-white.svg'),
       link: 'https://t.me/addstickers/RoryChris',
     },
   ],

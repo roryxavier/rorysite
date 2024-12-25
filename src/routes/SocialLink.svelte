@@ -1,14 +1,18 @@
 <script lang="ts">
-  import type { SocialLinkModel } from "@/models/SocialLink.model";
+  import type { SocialLinkModel } from '@/models/SocialLink.model';
 
   const { socialLink }: { socialLink: SocialLinkModel } = $props();
 </script>
 
 <a class="social-link overflow-hidden rounded-xl transition" href={socialLink.link} target="_blank">
+  {#if typeof socialLink.img === 'string'}
+    <img src={socialLink.img} alt={socialLink.name} />
+  {:else if typeof socialLink.img === 'function'}
+    {#await socialLink.img() then { default: src }}
+      <img {src} alt={socialLink.name} />
+    {/await}
+  {/if}
 
-  {#await import(`/src/assets/logo/${socialLink.img}.svg`) then { default: src }}
-    <img {src} alt="{socialLink.name}" />
-  {/await}
   <span>{socialLink.name}</span>
 </a>
 

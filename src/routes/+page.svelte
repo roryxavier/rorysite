@@ -1,10 +1,9 @@
-<script>
+<script lang="ts">
   import Favicon from '@/assets/favicon.ico';
   import CardCenterLayout from '@/components/CardCenterLayout.svelte';
   import { RORY_CHRIS_FURSONA } from '@/models/Fursona.model';
   import SocialLink from './SocialLink.svelte';
   import Header from './Header.svelte';
-  import PAINT_ICON from '@/assets/icon/paint-palette-with-brush.png';
 </script>
 
 <svelte:head>
