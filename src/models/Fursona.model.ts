@@ -5,7 +5,8 @@ import PAINT_ICON from '@/assets/icon/paint-palette-with-brush.png';
 import BLUEKSY_ICON from '@/assets/icon/bluesky-color-gradient.svg';
 import TWITTER_ICON from '@/assets/icon/twitter-color.svg';
 import GITHUB_ICON from '@/assets/icon/github.svg';
-import DISCROD_ICON from '@/assets/icon/discord-color.svg';
+import DISCORD_ICON from '@/assets/icon/discord-color.svg';
+import LINK_ICON from '@/assets/icon/link.svg';
 
 export type FursonaModel = Readonly<{
   labels: string[];
@@ -48,8 +49,14 @@ export const RORY_CHRIS_FURSONA: FursonaModel = {
     {
       name: '@roryxavier',
       alt: 'Discord',
-      img: DISCROD_ICON,
+      img: DISCORD_ICON,
       link: 'https://discordapp.com/users/525678985049538610',
+    },
+    {
+      name: 'Telegram Sticker',
+      alt: 'telegram sticker link',
+      img: LINK_ICON,
+      link: 'https://t.me/addstickers/RoryChris',
     },
   ],
 };
