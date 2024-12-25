@@ -1,8 +1,8 @@
 <script lang="ts">
-	export let darkMode: boolean;
+	const { darkMode }: { darkMode: boolean } = $props();
 </script>
 
-<div class="background" data-dark={`${darkMode}`} />
+<div class="background" data-dark={`${darkMode}`}></div>
 
 <style lang="scss">
 	.background {

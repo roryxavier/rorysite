@@ -1,22 +1,32 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { afterNavigate } from '$app/navigation';
-	import { ABOUT_ROUTE, ART_ROUTE, HOME_ROUTE, PROJECT_ROUTE, type RouteModel } from '@/models/Route.model.js';
+	import {
+		ABOUT_ROUTE,
+		ART_ROUTE,
+		HOME_ROUTE,
+		PROJECT_ROUTE,
+		type RouteModel,
+	} from '@/models/Route.model';
 	import Nav from './Actionbar-Nav.svelte';
 	import Logo from './Actionbar-Logo.svelte';
 	import HamburgerIcon from '@/components/icon/Hamburger.icon.svelte';
 
-	export let show: boolean;
-	export let showShadow: boolean;
-	export let toggleMenu: () => void;
+	const {
+		show,
+		showShadow,
+		toggleMenu,
+	}: { show: boolean; showShadow: boolean; toggleMenu(): void } = $props();
 
-	const navs: RouteModel[] = [HOME_ROUTE, ABOUT_ROUTE, PROJECT_ROUTE, ART_ROUTE].filter((route) => !route.isDisabled);
+	const navs: RouteModel[] = [HOME_ROUTE, ABOUT_ROUTE, PROJECT_ROUTE, ART_ROUTE].filter(
+		(route) => !route.isDisabled,
+	);
 
-	let pathname = '';
+	let pathname = $state('');
 
-	$: currentRoute = (() => {
+	const currentRoute = $derived.by(() => {
 		return navs.find((nav) => nav.path === pathname);
-	})();
+	});
 
 	async function resetPathname() {
 		const paths = window.location.pathname.split('/').filter((str) => str.length > 0);
@@ -32,7 +42,7 @@
 </script>
 
 <nav class="actionbar" data-show={show} data-scroll-down={`${showShadow}`}>
-	<button class="actionbar-hamburger" on:click={toggleMenu}>
+	<button class="actionbar-hamburger" onclick={toggleMenu}>
 		<HamburgerIcon size={20} />
 	</button>
 

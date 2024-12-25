@@ -15,7 +15,7 @@
 	<CardCenterLayout>
 		<Header />
 
-		<div class="flex flex-col m-auto text-justify text-base space-y-4">
+		<div class="m-auto flex flex-col space-y-4 text-justify text-base">
 			<p>
 				Hey there! Thanks for dropping by my site. My name's
 				<b>Rory</b>

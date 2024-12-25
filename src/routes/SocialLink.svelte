@@ -1,10 +1,10 @@
 <script lang="ts">
 	import type { SocialLinkModel } from '@/models/SocialLink.model';
 
-	export let socialLink: SocialLinkModel;
+	const { socialLink }: { socialLink: SocialLinkModel } = $props();
 </script>
 
-<a class="social-link rounded-xl overflow-hidden transition" href={socialLink.link} target="_blank">
+<a class="social-link overflow-hidden rounded-xl transition" href={socialLink.link} target="_blank">
 	<img alt={socialLink.name} src={socialLink.img} />
 	<span>{socialLink.name}</span>
 </a>
