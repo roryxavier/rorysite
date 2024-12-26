@@ -1,3 +1,4 @@
+import { IconModel } from './Icon.model';
 import type { SocialLinkModel } from './SocialLink.model';
 
 export type FursonaModel = Readonly<{
@@ -11,43 +12,47 @@ export const RORY_CHRIS_FURSONA: FursonaModel = {
     {
       name: '@roryxavier',
       alt: 'Telegram',
-      img: () => import('~icon/telegram-color.svg'),
+      img: new IconModel(() => import('~icon/telegram-color.svg')),
       link: 'https://t.me/roryxavier',
     },
     {
       name: 'Reference Website',
       alt: 'Reference Site',
-      img: () => import('~icon/paint-palette-with-brush.png'),
+      img: new IconModel(() => import('~icon/paint-palette-with-brush.png')),
       link: 'https://ref.rorywolf.net',
     },
     {
       name: '@roryxavier',
       alt: 'Bluesky',
-      img: () => import('~icon/bluesky-color-gradient.svg'),
+      img: new IconModel(() => import('~icon/bluesky-color-gradient.svg')),
       link: 'https://bsky.app/profile/roryxavier.bsky.social',
     },
     {
       name: '@rory_xavi',
       alt: 'Twitter',
-      img: () => import('~icon/twitter-color.svg'),
+      img: new IconModel(() => import('~icon/twitter-color.svg')),
       link: 'https://twitter.com/rory_xavi',
     },
     {
       name: '@roryxavier',
       alt: 'Github',
-      img: () => import('~icon/github.svg'),
+      img: new IconModel(() => import('~icon/github.svg'), {
+        invertColorOnTheme: 'dark',
+      }),
       link: 'https://github.com/roryxavier',
     },
     {
       name: '@roryxavier',
       alt: 'Discord',
-      img: () => import('~icon/discord-color.svg'),
+      img: new IconModel(() => import('~icon/discord-color.svg')),
       link: 'https://discordapp.com/users/525678985049538610',
     },
     {
       name: 'Telegram Sticker',
       alt: 'telegram sticker link',
-      img: () => import('~icon/link-white.svg'),
+      img: new IconModel(() => import('~icon/link-white.svg'), {
+        invertColorOnTheme: 'light',
+      }),
       link: 'https://t.me/addstickers/RoryChris',
     },
   ],

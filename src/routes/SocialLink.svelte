@@ -1,17 +1,31 @@
 <script lang="ts">
   import type { SocialLinkModel } from '@/models/SocialLink.model';
+  import { getTheme } from '@/models/Theme.model';
+  import { onMount } from 'svelte';
 
   const { socialLink }: { socialLink: SocialLinkModel } = $props();
+
+  let isMounted = $state(false);
+
+  const themeKey = $derived.by(() => {
+    if (!isMounted) return 'dark';
+
+    return getTheme().key;
+  });
+
+  onMount(() => {
+    isMounted = true;
+  });
 </script>
 
 <a class="social-link overflow-hidden rounded-xl transition" href={socialLink.link} target="_blank">
-  {#if typeof socialLink.img === 'string'}
-    <img src={socialLink.img} alt={socialLink.name} />
-  {:else if typeof socialLink.img === 'function'}
-    {#await socialLink.img() then { default: src }}
-      <img {src} alt={socialLink.name} />
-    {/await}
-  {/if}
+  {#await socialLink.img.getIcon() then src}
+    <img
+      {src}
+      alt={socialLink.name}
+      data-invert={socialLink.img.option?.invertColorOnTheme === themeKey}
+    />
+  {/await}
 
   <span>{socialLink.name}</span>
 </a>
@@ -44,6 +58,10 @@
       height: 1.5em;
       display: flex;
       object-fit: contain;
+
+      &[data-invert='true'] {
+        filter: invert(100%);
+      }
     }
 
     & > span {

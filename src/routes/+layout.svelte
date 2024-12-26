@@ -20,7 +20,7 @@
   let scrollTop = $state(0);
   let showingPopupNavigation = $state(false);
 
-  let themeKey = $state('');
+  let themeKey = $state('dark');
 
   $effect(() => {
     if (!isMounted) return;
