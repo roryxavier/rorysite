@@ -4,13 +4,27 @@
 	import type { ThemeModel } from '@/models/Theme.model';
 	import PopupNavigationTheme from './PopupNavigation-Theme.svelte';
 	import PopupNavigationNav from './PopupNavigation-Nav.svelte';
-	import { ABOUT_ROUTE, ART_ROUTE, HOME_ROUTE, PROJECT_ROUTE, type RouteModel } from '@/models/Route.model.js';
+	import {
+		ABOUT_ROUTE,
+		ART_ROUTE,
+		HOME_ROUTE,
+		PROJECT_ROUTE,
+		type RouteModel,
+	} from '@/models/Route.model.js';
 
 	export let show: boolean;
 	export let themeKey: string;
 	export let clickTheme: (theme: ThemeModel) => void;
 
-	const navs: RouteModel[] = [HOME_ROUTE, ABOUT_ROUTE, PROJECT_ROUTE, ART_ROUTE];
+	const navs: RouteModel[] = (() => {
+		const routes = [HOME_ROUTE];
+
+		if (!ABOUT_ROUTE.isDisabled) routes.push(ABOUT_ROUTE);
+		if (!PROJECT_ROUTE.isDisabled) routes.push(PROJECT_ROUTE);
+		if (!ART_ROUTE.isDisabled) routes.push(ART_ROUTE);
+
+		return routes;
+	})();
 
 	let pathname = '';
 
