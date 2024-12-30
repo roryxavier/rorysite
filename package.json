@@ -66,6 +66,6 @@
     "@tailwindcss/typography": "^0.5.15"
   },
   "engines": {
-    "node": ">=22.5.0"
+    "node": ">=23.5.0"
   }
 }
