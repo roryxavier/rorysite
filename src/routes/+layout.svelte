@@ -7,7 +7,7 @@
   import Background from '@/components/background/Background.svelte';
   import PopupNavigation from '@/components/popup-navigation/PopupNavigation.svelte';
   import { DARK_THEME, getTheme, onThemeChange, toggleTheme } from '@/models/Theme.model';
-  import { wait } from '@/utils/Await.js';
+  import { wait } from '@chanzor/utils';
 
   let { children } = $props();
 
