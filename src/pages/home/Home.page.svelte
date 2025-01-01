@@ -1,9 +1,9 @@
 <script lang="ts">
   import { RORY_CHRIS_FURSONA } from '@/models/Fursona.model';
   import AppPage from '@/components/AppPage.svelte';
-  import Label from '@/pages/home/components/Label.svelte';
   import SocialLinkV2 from '@/pages/home/components/SocialLink-v2.svelte';
   import { loadRes } from '@/U';
+  import LabelV2 from './components/Label-v2.svelte';
 </script>
 
 <AppPage>
@@ -33,12 +33,12 @@
           If you're interested in keeping up with my shenanigans, you can catch me on Following
           Social Sites. Cheers!!
         </p>
-      </div>
 
-      <div class="home-page-labels">
-        {#each RORY_CHRIS_FURSONA.labels as label}
-          <Label {label} />
-        {/each}
+        <div class="home-page-labels">
+          {#each RORY_CHRIS_FURSONA.labels as label}
+            <LabelV2 {label} />
+          {/each}
+        </div>
       </div>
 
       <div class="home-page-socials">
@@ -96,19 +96,27 @@
       gap: 2rem;
 
       .home-page-description {
-        gap: 1em;
         display: flex;
         flex-direction: column;
-      }
-      .home-page-labels {
-        width: 100%;
-        gap: 0.2em;
 
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-items: flex-start;
-        justify-content: flex-start;
+        gap: 1em;
+        padding: 1.5rem;
+        background-color: rgba(0, 0, 0, 0.767);
+        border-radius: 1rem;
+
+        backdrop-filter: blur(0.4rem);
+
+        .home-page-labels {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          align-items: flex-start;
+          justify-content: flex-start;
+
+          width: 100%;
+          gap: 0.2em;
+          margin-top: 0.5rem;
+        }
       }
       .home-page-socials {
         width: 100%;
