@@ -18,16 +18,24 @@
   });
 </script>
 
-<a class="social-link-v2 transition" href={socialLink.link} target="_blank">
-  <div class="social-link-v2-body">
-    {#await socialLink.img.getIcon() then src}
-      <img
-        {src}
-        alt={socialLink.name}
-        data-invert={socialLink.img.option?.invertColorOnTheme === themeKey}
-      />
+<a class="social-link-v2 transition" href={socialLink.href} target="_blank">
+  {#if socialLink.background}
+    {#await socialLink.background.getSrc() then src}
+      <img {src} alt={socialLink.alt} />
     {/await}
-    <span>{socialLink.name}</span>
+  {/if}
+
+  <div class="social-link-v2-body">
+    <div class="social-link-v2-body">
+      {#await socialLink.icon.getSrc() then src}
+        <img
+          {src}
+          alt={socialLink.name}
+          data-invert={socialLink.icon.option?.invertColorOnTheme === themeKey}
+        />
+      {/await}
+      <span>{socialLink.name}</span>
+    </div>
   </div>
 </a>
 
@@ -37,6 +45,7 @@
     flex-direction: column;
     justify-content: flex-end;
 
+    position: relative;
     text-align: start;
     aspect-ratio: 3/2;
     overflow: hidden;
@@ -48,30 +57,48 @@
     background-color: var(--primary-color-light);
     color: var(--primary-color-dark);
 
-    .social-link-v2-body {
-      gap: 0.5rem;
-      padding: 1rem;
+    & > img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
 
+      object-fit: cover;
+    }
+    & > div {
       display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
+      flex-direction: column;
+      justify-content: flex-end;
 
-      & > img {
-        aspect-ratio: 1/1;
-        width: 1.5em;
-        height: 1.5em;
+      z-index: 1;
+      height: 100%;
+      background: linear-gradient(transparent, black);
+
+      .social-link-v2-body {
         display: flex;
-        object-fit: contain;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
 
-        &[data-invert='true'] {
-          filter: invert(100%);
+        gap: 0.5rem;
+        padding: 1rem;
+        color: white;
+
+        & > img {
+          aspect-ratio: 1/1;
+          width: 1.5em;
+          height: 1.5em;
+          display: flex;
+          object-fit: contain;
+
+          &[data-invert='true'] {
+            filter: invert(100%);
+          }
         }
-      }
 
-      & > span {
-        width: 100%;
-        flex-grow: 1;
+        & > span {
+          width: 100%;
+          flex-grow: 1;
+        }
       }
     }
 

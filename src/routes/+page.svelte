@@ -60,6 +60,7 @@
   .home-page {
     width: 100%;
     max-width: 50rem;
+    gap: 4rem;
 
     display: flex;
     flex-direction: column;
@@ -71,7 +72,7 @@
     .home-page-section {
       width: 100%;
       min-height: var(--app-page-min-height);
-      padding: 1rem;
+      padding: 2rem;
 
       display: flex;
       flex-direction: column;
@@ -88,7 +89,6 @@
     .home-page-section-top {
       justify-content: flex-end;
       align-items: flex-start;
-      padding: 2rem;
 
       & > img {
         aspect-ratio: 1/1;
@@ -99,7 +99,6 @@
       }
     }
     .home-page-section-bottom {
-      padding-top: 8rem;
       gap: 2rem;
 
       .home-page-description {

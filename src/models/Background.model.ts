@@ -1,8 +1,5 @@
-export class IconModel {
-  constructor(
-    readonly src: string | (() => Promise<{ default: string }>),
-    readonly option?: { invertColorOnTheme?: 'light' | 'dark' },
-  ) {}
+export class BackgroundModel {
+  constructor(readonly src: string | (() => Promise<{ default: string }>)) {}
 
   async getSrc(): Promise<string> {
     if (typeof this.src === 'string') {

@@ -1,5 +1,10 @@
 import { IconModel } from './Icon.model';
 import type { SocialLinkModel } from './SocialLink.model';
+import TelegramSocialBackground from '@/assets/page/home/telegram-social-background.jpg';
+import RefSocialBackground from '@/assets/page/home/ref-social-background.png';
+import TwitterSocialBackground from '@/assets/page/home/twitter-social-background.jpg';
+import GithubSocialBackground from '@/assets/page/home/github-social-background.png';
+import { BackgroundModel } from './Background.model';
 
 export type FursonaModel = Readonly<{
   labels: string[];
@@ -10,50 +15,54 @@ export const RORY_CHRIS_FURSONA: FursonaModel = {
   labels: ['He/Him', 'Wolf', 'Gay', 'Taken - 🦊', 'Programmer', 'Happy Go Lucky'],
   socialLinks: [
     {
-      name: '@roryxavier',
+      href: 'https://t.me/roryxavier',
       alt: 'Telegram',
-      img: new IconModel(() => import('~icon/telegram-color.svg')),
-      link: 'https://t.me/roryxavier',
+      name: '@roryxavier',
+      icon: new IconModel(() => import('~icon/telegram-color.svg')),
+      background: new BackgroundModel(TelegramSocialBackground),
     },
     {
-      name: 'Reference Website',
+      href: 'https://ref.rorywolf.net',
       alt: 'Reference Site',
-      img: new IconModel(() => import('~icon/paint-palette-with-brush.png')),
-      link: 'https://ref.rorywolf.net',
+      name: 'Reference Website',
+      icon: new IconModel(() => import('~icon/paint-palette-with-brush.png')),
+      background: new BackgroundModel(RefSocialBackground),
     },
     {
-      name: '@roryxavier',
+      href: 'https://bsky.app/profile/roryxavier.bsky.social',
       alt: 'Bluesky',
-      img: new IconModel(() => import('~icon/bluesky-color-gradient.svg')),
-      link: 'https://bsky.app/profile/roryxavier.bsky.social',
-    },
-    {
-      name: '@rory_xavi',
-      alt: 'Twitter',
-      img: new IconModel(() => import('~icon/twitter-color.svg')),
-      link: 'https://twitter.com/rory_xavi',
-    },
-    {
       name: '@roryxavier',
+      icon: new IconModel(() => import('~icon/bluesky-color-gradient.svg')),
+    },
+    {
+      href: 'https://twitter.com/rory_xavi',
+      alt: 'Twitter',
+      name: '@rory_xavi',
+      icon: new IconModel(() => import('~icon/twitter-color.svg')),
+      background: new BackgroundModel(TwitterSocialBackground),
+    },
+    {
+      href: 'https://github.com/roryxavier',
       alt: 'Github',
-      img: new IconModel(() => import('~icon/github.svg'), {
+      name: '@roryxavier',
+      icon: new IconModel(() => import('~icon/github.svg'), {
         invertColorOnTheme: 'dark',
       }),
-      link: 'https://github.com/roryxavier',
+      background: new BackgroundModel(GithubSocialBackground),
     },
     {
-      name: '@roryxavier',
+      href: 'https://discordapp.com/users/525678985049538610',
       alt: 'Discord',
-      img: new IconModel(() => import('~icon/discord-color.svg')),
-      link: 'https://discordapp.com/users/525678985049538610',
+      name: '@roryxavier',
+      icon: new IconModel(() => import('~icon/discord-color.svg')),
     },
     {
+      href: 'https://t.me/addstickers/RoryChris',
+      alt: 'Telegram Sticker Link',
       name: 'Telegram Sticker',
-      alt: 'telegram sticker link',
-      img: new IconModel(() => import('~icon/link-white.svg'), {
+      icon: new IconModel(() => import('~icon/link-white.svg'), {
         invertColorOnTheme: 'light',
       }),
-      link: 'https://t.me/addstickers/RoryChris',
     },
   ],
 };

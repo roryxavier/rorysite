@@ -18,12 +18,12 @@
   });
 </script>
 
-<a class="social-link overflow-hidden rounded-xl transition" href={socialLink.link} target="_blank">
-  {#await socialLink.img.getIcon() then src}
+<a class="social-link overflow-hidden rounded-xl transition" href={socialLink.href} target="_blank">
+  {#await socialLink.icon.getSrc() then src}
     <img
       {src}
       alt={socialLink.name}
-      data-invert={socialLink.img.option?.invertColorOnTheme === themeKey}
+      data-invert={socialLink.icon.option?.invertColorOnTheme === themeKey}
     />
   {/await}
 
