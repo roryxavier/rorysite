@@ -1,11 +1,13 @@
 <script lang="ts">
-  import Avatar from '@/assets/avatar.webp';
   import { RORY_CHRIS_FURSONA } from '@/models/Fursona.model';
   import Label from './Label.svelte';
+  import { loadRes } from '@/U';
 </script>
 
 <div class="card-header">
-  <img src={Avatar} alt="Avatar" />
+  {#await loadRes(import('@/assets/avatar.webp')) then src}
+    <img {src} alt="Avatar" />
+  {/await}
 
   <div class="card-content">
     <h1>Rory!</h1>

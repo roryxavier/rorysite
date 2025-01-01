@@ -15,17 +15,17 @@ export const ABOUT_ROUTE: RouteModel = {
   path: '/about',
   title: 'About',
 
-  isDisabled: true,
+  isDisabled: false,
 };
 export const PROJECT_ROUTE: RouteModel = {
   path: '/project',
   title: 'Project',
 
-  isDisabled: true,
+  isDisabled: false,
 };
 export const ART_ROUTE: RouteModel = {
   path: '/art',
   title: 'Art',
 
-  isDisabled: true,
+  isDisabled: false,
 };

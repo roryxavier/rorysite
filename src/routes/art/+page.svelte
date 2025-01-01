@@ -1,7 +1,8 @@
 <script lang="ts">
   import Favicon from '@/assets/favicon.ico';
+  import AppPage from '@/components/AppPage.svelte';
   import { ART_ROUTE } from '@/models/Route.model';
-  import SectionArt from '@/routes/art/SectionArt.svelte';
+  import SectionArt from '@/pages/art/components/SectionArt.svelte';
   import { onMount } from 'svelte';
   import { navigate } from 'svelte-routing';
 
@@ -15,14 +16,17 @@
   <title>Rory!</title>
 </svelte:head>
 
-<div class="art-page">
-  <SectionArt />
-</div>
+<AppPage>
+  <div class="art-page">
+    <SectionArt />
+  </div>
+</AppPage>
 
 <style lang="scss">
   .art-page {
     width: 100%;
     gap: 1rem;
+    padding: 1rem;
 
     display: flex;
     flex-direction: column;
