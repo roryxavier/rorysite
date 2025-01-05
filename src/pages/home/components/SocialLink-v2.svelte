@@ -25,7 +25,7 @@
     {/await}
   {/if}
 
-  <div class="social-link-v2-body">
+  <div>
     <div class="social-link-v2-body">
       {#await socialLink.icon.getSrc() then src}
         <img
@@ -71,7 +71,8 @@
 
       z-index: 1;
       height: 100%;
-      background: linear-gradient(transparent, black);
+      background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.8));
+      transition: all 200ms ease;
 
       .social-link-v2-body {
         display: flex;
@@ -100,11 +101,17 @@
           flex-grow: 1;
         }
       }
+
+      &:hover,
+      &:focus {
+        background-color: rgba(0, 0, 0, 0.4);
+      }
     }
 
     &:hover,
     &:focus {
-      background-color: var(--primary-color-lighter);
+      transform: scale(1.02);
+      z-index: 1;
     }
   }
 </style>

@@ -33,6 +33,27 @@
     }
   });
 
+  $effect(() => {
+    console.log('on change theme');
+    const html = document.querySelector('html');
+    const isDark = html?.classList.contains('dark');
+
+    switch (themeKey) {
+      case 'light':
+        if (isDark) {
+          html?.classList.remove('dark');
+          html?.style.setProperty('color-scheme', 'light');
+        }
+        break;
+      case 'dark':
+        if (!isDark) {
+          html?.classList.add('dark');
+          html?.style.setProperty('color-scheme', 'dark');
+        }
+        break;
+    }
+  });
+
   function onScroll() {
     scrollTop = window.scrollY;
   }
@@ -107,7 +128,7 @@
   />
 </svelte:head>
 
-<div class="app" data-theme={themeKey}>
+<div class={`app ${themeKey}`}>
   <Background darkMode={themeKey === DARK_THEME.key} />
 
   <Actionbar
@@ -153,59 +174,63 @@
     }
 
     --text-color: var(--text-color-a100);
+  }
 
-    &[data-theme='light'] {
-      --primary-color-extra-light: #eff2f7;
-      --primary-color-lighter: #d1ddee;
-      --primary-color-light: #dbeafe;
-      --primary-color: #1e3a8a;
-      --primary-color-dark: #122b6e;
-      --primary-color-darker: #0d2053;
+  .light {
+    --primary-color-extra-light: #eff2f7;
+    --primary-color-lighter: #d1ddee;
+    --primary-color-light: #dbeafe;
+    --primary-color: #1e3a8a;
+    --primary-color-dark: #122b6e;
+    --primary-color-darker: #0d2053;
 
-      --text-color-a5: hsla(0, 0%, 0%, 0.05);
-      --text-color-a30: hsla(0, 0%, 0%, 0.3);
-      --text-color-a50: hsla(0, 0%, 0%, 0.5);
-      --text-color-a70: hsla(0, 0%, 0%, 0.7);
-      --text-color-a90: hsla(0, 0%, 0%, 0.9);
-      --text-color-a100: hsl(0, 0%, 0%);
+    --primary-color-light-a50: hsla(214, 95%, 93%, 0.5);
+    --primary-color-a50: hsla(224, 64%, 33%, 0.5);
+    --primary-color-dark-a50: hsla(224, 72%, 25%, 0.5);
 
-      --background-color-a5: hsla(0, 0%, 100%, 0.05);
-      --background-color-a50: hsla(0, 0%, 100%, 0.5);
-      --background-color-a60: hsla(0, 0%, 100%, 0.6);
-      --background-color-a70: hsla(0, 0%, 100%, 0.7);
-      --background-color-a90: hsla(0, 0%, 100%, 0.9);
-      --background-color-a100: hsla(0, 0%, 100%, 1);
+    --text-color-a5: hsla(0, 0%, 0%, 0.05);
+    --text-color-a30: hsla(0, 0%, 0%, 0.3);
+    --text-color-a50: hsla(0, 0%, 0%, 0.5);
+    --text-color-a70: hsla(0, 0%, 0%, 0.7);
+    --text-color-a90: hsla(0, 0%, 0%, 0.9);
+    --text-color-a100: hsl(0, 0%, 0%);
 
-      --background-color: hsl(240, 26%, 96%);
-    }
-    &[data-theme='dark'] {
-      --primary-color-lighter: #303a47;
-      --primary-color-light: #242f3d;
-      --primary-color: #6a8be6;
+    --background-color-a5: hsla(0, 0%, 100%, 0.05);
+    --background-color-a50: hsla(0, 0%, 100%, 0.5);
+    --background-color-a60: hsla(0, 0%, 100%, 0.6);
+    --background-color-a70: hsla(0, 0%, 100%, 0.7);
+    --background-color-a90: hsla(0, 0%, 100%, 0.9);
+    --background-color-a100: hsla(0, 0%, 100%, 1);
 
-      --primary-color-extra-light: #06172c;
-      --primary-color-lighter: #112d50;
-      --primary-color-light: #081b33;
-      --primary-color: #3676c9;
-      --primary-color-dark: #689fe7;
-      --primary-color-darker: #a3c7f5;
+    --background-color: hsl(240, 26%, 96%);
+  }
+  .dark {
+    --primary-color-extra-light: #06172c;
+    --primary-color-lighter: #112d50;
+    --primary-color-light: #081b33;
+    --primary-color: #3676c9;
+    --primary-color-dark: #689fe7;
+    --primary-color-darker: #a3c7f5;
 
-      --text-color-a5: hsla(0, 0%, 100%, 0.05);
-      --text-color-a30: hsla(0, 0%, 100%, 0.3);
-      --text-color-a50: hsla(0, 0%, 100%, 0.5);
-      --text-color-a70: hsla(0, 0%, 100%, 0.7);
-      --text-color-a90: hsla(0, 0%, 100%, 0.9);
-      --text-color-a100: hsl(0, 0%, 100%);
+    --primary-color-light-a50: hsla(213, 73%, 12%, 0.5);
+    --primary-color-a50: hsla(214, 58%, 50%, 0.5);
+    --primary-color-dark-a50: hsla(214, 73%, 66%, 0.5);
 
-      --background-color-a5: hsla(0, 0%, 0%, 0.05);
-      --background-color-a20: hsla(0, 0%, 0%, 0.2);
-      --background-color-a50: hsla(0, 0%, 0%, 0.5);
-      --background-color-a60: hsla(0, 0%, 0%, 0.6);
-      --background-color-a70: hsla(0, 0%, 0%, 0.7);
-      --background-color-a90: hsla(0, 0%, 0%, 0.9);
-      --background-color-a100: hsla(0, 0%, 0%, 1);
+    --text-color-a5: hsla(0, 0%, 100%, 0.05);
+    --text-color-a30: hsla(0, 0%, 100%, 0.3);
+    --text-color-a50: hsla(0, 0%, 100%, 0.5);
+    --text-color-a70: hsla(0, 0%, 100%, 0.7);
+    --text-color-a90: hsla(0, 0%, 100%, 0.9);
+    --text-color-a100: hsl(0, 0%, 100%);
 
-      --background-color: hsl(240, 3%, 6%);
-    }
+    --background-color-a5: hsla(0, 0%, 0%, 0.05);
+    --background-color-a20: hsla(0, 0%, 0%, 0.2);
+    --background-color-a50: hsla(0, 0%, 0%, 0.5);
+    --background-color-a60: hsla(0, 0%, 0%, 0.6);
+    --background-color-a70: hsla(0, 0%, 0%, 0.7);
+    --background-color-a90: hsla(0, 0%, 0%, 0.9);
+    --background-color-a100: hsla(0, 0%, 0%, 1);
+
+    --background-color: hsl(240, 3%, 6%);
   }
 </style>

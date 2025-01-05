@@ -14,7 +14,7 @@
       {/await}
 
       <span class="home-page-welcome">Welcome</span>
-      <span>
+      <span class="home-page-intro">
         Hey! I'm <b>Rory Xavier</b>
       </span>
 
@@ -53,11 +53,25 @@
 <style lang="scss">
   .home-page {
     width: 100%;
-    max-width: 50rem;
-    gap: 4rem;
+    max-width: 122rem;
+    transition: all 200ms ease;
 
     display: flex;
     flex-direction: column;
+
+    background-image: linear-gradient(
+      180deg,
+      transparent 0%,
+      transparent 50dvh,
+      var(--background-color-a70) 100dvh
+    );
+
+    @media (min-width: 900px) {
+      font-size: 1.2rem;
+    }
+    @media (min-width: 1100px) {
+      font-size: 1.3rem;
+    }
 
     b {
       color: var(--primary-color-dark);
@@ -67,16 +81,20 @@
       width: 100%;
       min-height: var(--app-page-min-height);
       padding: 2rem;
+      transition: all 200ms ease;
 
       display: flex;
       flex-direction: column;
 
-      .home-page-welcome {
-        font-size: 4rem;
-        font-weight: bold;
+      @media (min-width: 900px) {
+        padding: 2.5rem;
       }
+      @media (min-width: 1100px) {
+        padding: 4rem;
+      }
+
       .home-page-furcon-next {
-        margin-top: 2rem;
+        margin-top: 4rem;
       }
     }
 
@@ -85,11 +103,27 @@
       align-items: flex-start;
 
       & > img {
+        --size: 9em;
+        width: var(--size);
+        height: var(--size);
         aspect-ratio: 1/1;
         border-radius: 50%;
         transition: all 400ms ease;
-        --size: 9rem;
-        width: var(--size);
+
+        @media (min-width: 900px) {
+          --size: 11em;
+        }
+        @media (min-width: 1100px) {
+          --size: 13em;
+        }
+      }
+
+      .home-page-welcome {
+        font-size: 4em;
+        font-weight: bold;
+      }
+      .home-page-intro {
+        font-size: 1.4em;
       }
     }
     .home-page-section-bottom {
@@ -100,11 +134,16 @@
         flex-direction: column;
 
         gap: 1em;
-        padding: 1.5rem;
-        background-color: rgba(0, 0, 0, 0.767);
+        padding: 2rem;
         border-radius: 1rem;
-
         backdrop-filter: blur(0.4rem);
+        transition: all 200ms ease;
+        background-color: var(--background-color-a70);
+        background-color: var(--primary-color-light-a50);
+
+        @media (min-width: 900px) {
+          padding: 2.5rem;
+        }
 
         .home-page-labels {
           display: flex;
@@ -115,19 +154,27 @@
 
           width: 100%;
           gap: 0.2em;
-          margin-top: 0.5rem;
+          margin-top: 2rem;
         }
       }
       .home-page-socials {
         width: 100%;
-        gap: 0.5rem;
+        gap: 0.5em;
         display: flex;
         flex-direction: column;
         align-items: stretch;
 
         @media (min-width: 450px) {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(12.5rem, 1fr));
+          grid-template-columns: repeat(auto-fit, minmax(12.5em, 1fr));
+        }
+        @media (min-width: 600px) {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(14em, 1fr));
+        }
+        @media (min-width: 900px) {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(16em, 1fr));
         }
       }
     }
