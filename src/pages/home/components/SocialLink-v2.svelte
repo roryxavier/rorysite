@@ -113,5 +113,9 @@
       transform: scale(1.02);
       z-index: 1;
     }
+
+    @media (max-width: 449px) {
+      aspect-ratio: 6/2;
+    }
   }
 </style>

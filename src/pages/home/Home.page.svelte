@@ -166,7 +166,7 @@
 
         @media (min-width: 450px) {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(12.5em, 1fr));
+          grid-template-columns: repeat(auto-fit, minmax(11em, 1fr));
         }
         @media (min-width: 600px) {
           display: grid;
