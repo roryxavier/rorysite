@@ -1,26 +1,26 @@
 <script lang="ts">
-	export let label: string;
+  export let label: string;
 </script>
 
 <span class="label">{label}</span>
 
 <style lang="scss">
-	.label {
-		min-width: max-content;
-		background: var(--primary-color);
-		color: white;
+  .label {
+    min-width: max-content;
+    background: var(--primary-color);
+    color: white;
 
-		font-size: 0.6rem;
-		padding: 0.4em 0.6em;
-		line-height: 1;
+    font-size: 0.6rem;
+    padding: 0.4em 0.6em;
+    line-height: 1;
 
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		border-radius: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2em;
 
-		@media (min-width: 550px) {
-			font-size: 0.7rem;
-		}
-	}
+    @media (min-width: 550px) {
+      font-size: 0.7rem;
+    }
+  }
 </style>

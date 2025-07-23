@@ -1,31 +1,31 @@
 export type RouteModel = Readonly<{
-	path: string;
-	title: string;
+  path: string;
+  title: string;
 
-	isDisabled: boolean;
+  isDisabled: boolean;
 }>;
 
 export const HOME_ROUTE: RouteModel = {
-	path: '/',
-	title: 'Home',
+  path: '/',
+  title: 'Home',
 
-	isDisabled: false,
+  isDisabled: false,
 };
 export const ABOUT_ROUTE: RouteModel = {
-	path: '/about',
-	title: 'About',
+  path: '/about',
+  title: 'About',
 
-	isDisabled: true,
+  isDisabled: true,
 };
 export const PROJECT_ROUTE: RouteModel = {
-	path: '/project',
-	title: 'Project',
+  path: '/project',
+  title: 'Project',
 
-	isDisabled: true,
+  isDisabled: true,
 };
 export const ART_ROUTE: RouteModel = {
-	path: '/art',
-	title: 'Art',
+  path: '/art',
+  title: 'Art',
 
-	isDisabled: true,
+  isDisabled: true,
 };
