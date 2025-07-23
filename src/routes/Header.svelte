@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import Avatar from '@/assets/avatar.webp';
   import { RORY_CHRIS_FURSONA } from '@/models/Fursona.model';
   import Label from './Label.svelte';

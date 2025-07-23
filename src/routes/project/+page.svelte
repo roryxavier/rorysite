@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import Favicon from '@/assets/favicon.ico';
   import { PROJECT_ROUTE } from '@/models/Route.model';
   import SectionProject from '@/routes/project/SectionProject.svelte';

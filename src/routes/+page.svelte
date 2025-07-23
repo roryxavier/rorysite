@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import Favicon from '@/assets/favicon.ico';
   import CardCenterLayout from '@/components/CardCenterLayout.svelte';
   import { RORY_CHRIS_FURSONA } from '@/models/Fursona.model';

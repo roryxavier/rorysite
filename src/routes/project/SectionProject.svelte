@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import CardCenterLayout from '@/components/CardCenterLayout.svelte';
   import ImageRoryWolf from '@/assets/project/rorywolf.png';
   import ImageFoxyWolf from '@/assets/project/foxywolf.png';

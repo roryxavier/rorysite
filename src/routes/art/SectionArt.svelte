@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import CardCenterLayout from '@/components/CardCenterLayout.svelte';
 </script>
 
