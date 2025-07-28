@@ -7,7 +7,7 @@
     HOME_ROUTE,
     PROJECT_ROUTE,
     type RouteModel,
-  } from '@/models/Route.model.js';
+  } from '@/models/Route.model';
   import Nav from './Actionbar-Nav.svelte';
   import Logo from './Actionbar-Logo.svelte';
   import HamburgerIcon from '@/components/icon/Hamburger.icon.svelte';

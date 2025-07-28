@@ -14,6 +14,7 @@
     "publish": "wrangler pages publish build/ --project-name rorysite"
   },
   "devDependencies": {
+    "@chanzor/utils": "^0.1.5",
     "@sveltejs/adapter-auto": "^2.1.1",
     "@sveltejs/adapter-cloudflare": "^4.9.0",
     "@sveltejs/adapter-static": "^2.0.3",
@@ -36,6 +37,5 @@
     "typescript": "^4.9.5",
     "vite": "^4.5.5"
   },
-  "type": "module",
-  "dependencies": {}
+  "type": "module"
 }
