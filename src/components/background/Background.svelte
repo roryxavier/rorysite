@@ -2,7 +2,7 @@
   export let darkMode: boolean;
 </script>
 
-<div class="background" data-dark={`${darkMode}`} />
+<div class="background" data-dark={`${darkMode}`}></div>
 
 <style lang="scss">
   .background {

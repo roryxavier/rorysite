@@ -4,26 +4,28 @@
   import ImageFoxyWolf from '@/assets/project/foxywolf.png';
   import ImageRefRoryWolf from '@/assets/project/refrorywolf.png';
 
-  const projects = [
-    {
-      image: ImageRefRoryWolf,
-      title: 'Rory Ref Site',
-      link: 'https://ref.rorywolf.net/',
-      githubLink: 'https://github.com/roryxavier/roryrefsite',
-    },
-    {
-      image: ImageFoxyWolf,
-      title: 'Foxy Wolf Site',
-      link: 'https://foxywolf.net/',
-      githubLink: 'https://github.com/roryxavier/foxywolfsite',
-    },
-    {
-      image: ImageRoryWolf,
-      title: 'Rory Site',
-      link: 'https://rorywolf.net/',
-      githubLink: 'https://github.com/roryxavier/rorysite',
-    },
-  ];
+  const projects = $derived.by(() => {
+    return [
+      {
+        image: ImageRefRoryWolf,
+        title: 'Rory Ref Site',
+        link: 'https://ref.rorywolf.net/',
+        githubLink: 'https://github.com/roryxavier/roryrefsite',
+      },
+      {
+        image: ImageFoxyWolf,
+        title: 'Foxy Wolf Site',
+        link: 'https://foxywolf.net/',
+        githubLink: 'https://github.com/roryxavier/foxywolfsite',
+      },
+      {
+        image: ImageRoryWolf,
+        title: 'Rory Site',
+        link: 'https://rorywolf.net/',
+        githubLink: 'https://github.com/roryxavier/rorysite',
+      },
+    ];
+  });
 </script>
 
 <CardCenterLayout>
@@ -36,10 +38,10 @@
         </a>
 
         <div class="section-project-links">
-          <a class="rounded overflow-hidden transition" href={project.link} target="_blank">
+          <a class="overflow-hidden rounded transition" href={project.link} target="_blank">
             Website
           </a>
-          <a class="rounded overflow-hidden transition" href={project.githubLink} target="_blank">
+          <a class="overflow-hidden rounded transition" href={project.githubLink} target="_blank">
             Github Repository
           </a>
         </div>

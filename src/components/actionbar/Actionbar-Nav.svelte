@@ -1,8 +1,7 @@
 <script lang="ts">
   import type { RouteModel } from '@/models/Route.model';
 
-  export let route: RouteModel;
-  export let selected: boolean;
+  const { route, selected }: { route: RouteModel; selected: boolean } = $props();
 </script>
 
 <a class="actionbar-nav" href={route.path} data-selected={selected}>{route.title}</a>

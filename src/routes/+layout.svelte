@@ -9,18 +9,20 @@
   import { DARK_THEME, getTheme, onThemeChange, toggleTheme } from '@/models/Theme.model';
   import { wait } from '@chanzor/utils';
 
-  let isMounted = false;
+  let { children } = $props();
 
-  let showActionbar = false;
-  let showContent = false;
-  let startAnimate = false;
+  let isMounted = $state(false);
 
-  let scrollTop = 0;
-  let showingPopupNavigation = false;
+  let showActionbar = $state(false);
+  let showContent = $state(false);
+  let startAnimate = $state(false);
 
-  let themeKey = '';
+  let scrollTop = $state(0);
+  let showingPopupNavigation = $state(false);
 
-  $: (() => {
+  let themeKey = $state('dark');
+
+  $effect(() => {
     if (!isMounted) return;
     if (showingPopupNavigation) {
       setTimeout(() => {
@@ -29,7 +31,27 @@
     } else {
       window.removeEventListener('click', onClickOutsidePopupNavigation);
     }
-  })();
+  });
+
+  $effect(() => {
+    const html = document.querySelector('html');
+    const isDark = html?.classList.contains('dark');
+
+    switch (themeKey) {
+      case 'light':
+        if (isDark) {
+          html?.classList.remove('dark');
+          html?.style.setProperty('color-scheme', 'light');
+        }
+        break;
+      case 'dark':
+        if (!isDark) {
+          html?.classList.add('dark');
+          html?.style.setProperty('color-scheme', 'dark');
+        }
+        break;
+    }
+  });
 
   function onScroll() {
     scrollTop = window.scrollY;
@@ -66,6 +88,15 @@
 
     await wait(50);
     startAnimate = true;
+
+    if (!isMounted) return;
+    if (showingPopupNavigation) {
+      setTimeout(() => {
+        window.addEventListener('click', onClickOutsidePopupNavigation);
+      }, 100);
+    } else {
+      window.removeEventListener('click', onClickOutsidePopupNavigation);
+    }
   });
   afterNavigate(async () => {
     await new Promise((r) => setTimeout(r, 400));
@@ -106,7 +137,7 @@
   />
 
   <div class="app-body" data-show={showContent} data-start-animate={startAnimate}>
-    <slot />
+    {@render children()}
   </div>
 
   <PopupNavigation show={showingPopupNavigation} {themeKey} {clickTheme} />

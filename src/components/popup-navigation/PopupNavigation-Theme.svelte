@@ -3,10 +3,10 @@
   import DarkThemeIcon from '@/components/icon/DarkTheme.icon.svelte';
   import LightThemeIcon from '@/components/icon/LightTheme.icon.svelte';
 
-  export let themeKey: string;
-  export let clickTheme: (theme: ThemeModel) => void;
+  const { themeKey, clickTheme }: { themeKey: string; clickTheme(theme: ThemeModel): void } =
+    $props();
 
-  $: index = (() => {
+  const index = $derived.by(() => {
     switch (themeKey) {
       case LIGHT_THEME.key:
       default:
@@ -14,14 +14,14 @@
       case DARK_THEME.key:
         return 1;
     }
-  })();
+  });
 </script>
 
 <div class="popup-navigation-theme" style="--item-index: {index}">
   <button
     aria-label={LIGHT_THEME.title}
     data-selected={themeKey === LIGHT_THEME.key}
-    on:click={() => clickTheme(LIGHT_THEME)}
+    onclick={() => clickTheme(LIGHT_THEME)}
   >
     <LightThemeIcon size={20} />
   </button>
@@ -29,7 +29,7 @@
   <button
     aria-label={DARK_THEME.title}
     data-selected={themeKey === DARK_THEME.key}
-    on:click={() => clickTheme(DARK_THEME)}
+    onclick={() => clickTheme(DARK_THEME)}
   >
     <DarkThemeIcon size={18} />
   </button>

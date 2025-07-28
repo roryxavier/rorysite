@@ -10,13 +10,15 @@
     HOME_ROUTE,
     PROJECT_ROUTE,
     type RouteModel,
-  } from '@/models/Route.model.js';
+  } from '@/models/Route.model';
 
-  export let show: boolean;
-  export let themeKey: string;
-  export let clickTheme: (theme: ThemeModel) => void;
+  const {
+    show,
+    themeKey,
+    clickTheme,
+  }: { show: boolean; themeKey: string; clickTheme(theme: ThemeModel): void } = $props();
 
-  const navs: RouteModel[] = (() => {
+  const navs: RouteModel[] = $derived.by(() => {
     const routes = [HOME_ROUTE];
 
     if (!ABOUT_ROUTE.isDisabled) routes.push(ABOUT_ROUTE);
@@ -24,9 +26,9 @@
     if (!ART_ROUTE.isDisabled) routes.push(ART_ROUTE);
 
     return routes;
-  })();
+  });
 
-  let pathname = '';
+  let pathname = $state('');
 
   async function resetPathname() {
     const paths = window.location.pathname.split('/').filter((str) => str.length > 0);
