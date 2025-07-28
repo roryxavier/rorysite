@@ -71,7 +71,7 @@
     overflow: hidden;
 
     width: 100%;
-    height: var(--actionbar-height);
+    min-height: var(--actionbar-height);
     padding: 1rem;
 
     border: 1px solid transparent;

@@ -1,6 +1,11 @@
+import type { BackgroundModel } from './Background.model';
+import type { IconModel } from './Icon.model';
+
 export type SocialLinkModel = Readonly<{
-  name: string;
+  href: string;
   alt: string;
-  img: string;
-  link: string;
+
+  name: string;
+  icon: IconModel;
+  background?: BackgroundModel;
 }>;
