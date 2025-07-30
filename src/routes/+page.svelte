@@ -1,6 +1,6 @@
 <script lang="ts">
   import Favicon from '@/assets/favicon.ico';
-  import HomePage from '@/pages/home/Home.page.svelte';
+  import HomePage from '@/pages/home/Home-v2.page.svelte';
 </script>
 
 <svelte:head>

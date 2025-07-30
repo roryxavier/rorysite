@@ -2,8 +2,8 @@ import { IconModel } from './Icon.model';
 import type { SocialLinkModel } from './SocialLink.model';
 import { BackgroundModel } from './Background.model';
 
-export const USE_BACKGROUND = false;
-export const USE_NEXT_FURCON = false;
+export const USE_BACKGROUND = true;
+export const USE_NEXT_FURCON = true;
 
 export type FursonaModel = Readonly<{
   labels: string[];
