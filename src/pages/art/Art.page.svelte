@@ -1,15 +1,19 @@
 <script lang="ts">
+  import AppPage from '@/components/AppPage.svelte';
   import SectionArt from '@/pages/art/components/SectionArt.svelte';
 </script>
 
-<div class="art-page">
-  <SectionArt />
-</div>
+<AppPage>
+  <div class="art-page">
+    <SectionArt />
+  </div>
+</AppPage>
 
 <style lang="scss">
   .art-page {
     width: 100%;
     gap: 1rem;
+    padding: 1rem;
 
     display: flex;
     flex-direction: column;

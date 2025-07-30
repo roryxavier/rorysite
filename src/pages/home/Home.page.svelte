@@ -3,39 +3,47 @@
   import { RORY_CHRIS_FURSONA } from '@/models/Fursona.model';
   import SocialLink from './components/SocialLink.svelte';
   import Header from './components/Header.svelte';
+  import AppPage from '@/components/AppPage.svelte';
 </script>
 
-<div class="home-page">
-  <CardCenterLayout>
-    <Header />
+<AppPage>
+  <div class="home-page">
+    <CardCenterLayout>
+      <Header />
 
-    <div class="flex flex-col m-auto text-justify text-base space-y-4">
-      <p>
-        Hey there! Thanks for dropping by my site. My name's
-        <b>Rory</b>
-        and I'm a Blue Wolf currently hanging out in Singapore.
-      </p>
-      <p>
-        If you're interested in keeping up with my shenanigans, you can catch me on Following Social
-        Sites. Cheers!!
-      </p>
-    </div>
+      <div class="m-auto flex flex-col space-y-4 text-justify text-base">
+        <p>
+          Hey there! Thanks for dropping by my site. My name's
+          <b>Rory</b>
+          and I'm a Blue Wolf currently hanging out in Singapore.
+        </p>
+        <p>
+          If you're interested in keeping up with my shenanigans, you can catch me on Following
+          Social Sites. Cheers!!
+        </p>
+      </div>
 
-    <div class="socials">
-      {#each RORY_CHRIS_FURSONA.socialLinks as link}
-        <SocialLink socialLink={link} />
-      {/each}
-    </div>
-  </CardCenterLayout>
-</div>
+      <div class="socials">
+        {#each RORY_CHRIS_FURSONA.socialLinks as link}
+          <SocialLink socialLink={link} />
+        {/each}
+      </div>
+    </CardCenterLayout>
+  </div>
+</AppPage>
 
 <style lang="scss">
   .home-page {
     gap: 1rem;
+    padding: 1rem;
+    margin-block: auto;
+
     width: 100%;
+
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     text-align: center;
 
     b {

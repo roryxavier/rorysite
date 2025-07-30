@@ -151,8 +151,6 @@
 
     .app-body {
       width: 100%;
-      min-height: calc(100dvh - var(--actionbar-height) - 3px);
-      padding: 1rem;
 
       display: flex;
       flex-direction: column;
