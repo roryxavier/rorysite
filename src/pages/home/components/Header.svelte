@@ -1,9 +1,7 @@
 <script lang="ts">
-  import { RORY_CHRIS_FURSONA } from '@/models/Fursona.model';
+  import { RORY_CHRIS_FURSONA, USE_NEXT_FURCON } from '@/models/Fursona.model';
   import Label from './Label.svelte';
   import { loadRes } from '@/U';
-
-  const USE_NEXT_FURCON = false;
 </script>
 
 <div class="card-header">

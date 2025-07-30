@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { RORY_CHRIS_FURSONA } from '@/models/Fursona.model';
+  import { RORY_CHRIS_FURSONA, USE_NEXT_FURCON } from '@/models/Fursona.model';
   import AppPage from '@/components/AppPage.svelte';
   import SocialLinkV2 from '@/pages/home/components/SocialLink-v2.svelte';
   import { loadRes } from '@/U';
@@ -18,7 +18,9 @@
         Hey! I'm <b>Rory Xavier</b>
       </span>
 
-      <span class="home-page-furcon-next">Next FURCON: JMoF</span>
+      {#if USE_NEXT_FURCON}
+        <span class="home-page-furcon-next">Next FURCON: JMoF</span>
+      {/if}
     </div>
 
     <div class="home-page-section home-page-section-bottom">

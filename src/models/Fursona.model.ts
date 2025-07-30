@@ -3,6 +3,7 @@ import type { SocialLinkModel } from './SocialLink.model';
 import { BackgroundModel } from './Background.model';
 
 export const USE_BACKGROUND = false;
+export const USE_NEXT_FURCON = false;
 
 export type FursonaModel = Readonly<{
   labels: string[];
