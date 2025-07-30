@@ -34,7 +34,6 @@
   });
 
   $effect(() => {
-    console.log('on change theme');
     const html = document.querySelector('html');
     const isDark = html?.classList.contains('dark');
 

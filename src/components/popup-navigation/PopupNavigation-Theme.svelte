@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { DARK_THEME, LIGHT_THEME, type ThemeModel } from '@/models/Theme.model.js';
+  import { DARK_THEME, LIGHT_THEME, type ThemeModel } from '@/models/Theme.model';
   import DarkThemeIcon from '@/components/icon/DarkTheme.icon.svelte';
   import LightThemeIcon from '@/components/icon/LightTheme.icon.svelte';
 
