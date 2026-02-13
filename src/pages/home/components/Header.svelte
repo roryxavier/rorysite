@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { RORY_CHRIS_FURSONA, USE_NEXT_FURCON } from '@/models/Fursona.model';
+  import { RORY_CHRIS_FURSONA } from '@/models/Fursona.model';
   import Label from './Label.svelte';
   import { loadRes } from '@/U';
 </script>
@@ -17,12 +17,6 @@
         <Label {label} />
       {/each}
     </div>
-
-    {#if USE_NEXT_FURCON}
-      <span class="card-next" title="Japan Meeting of Furries">
-        Next FURCON: <span title="Japan Meeting of Furries">JMoF</span>
-      </span>
-    {/if}
   </div>
 </div>
 
@@ -62,9 +56,6 @@
         justify-content: center;
         width: 50%;
         gap: 0.2em;
-      }
-      .card-next {
-        font-size: 0.8rem;
       }
     }
 
