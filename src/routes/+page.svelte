@@ -1,6 +1,6 @@
 <script lang="ts">
   import Favicon from '@/assets/favicon.ico';
-  import HomePage from '@/pages/home/Home-v2.page.svelte';
+  import HomeV2Page from '@/pages/home-v2/Home-v2.page.svelte';
 </script>
 
 <svelte:head>
@@ -8,4 +8,4 @@
   <title>Rory!</title>
 </svelte:head>
 
-<HomePage />
+<HomeV2Page />

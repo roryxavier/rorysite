@@ -1,7 +1,7 @@
 <script lang="ts">
   import { RORY_CHRIS_FURSONA } from '@/models/Fursona.model';
   import AppPage from '@/components/AppPage.svelte';
-  import SocialLinkV2 from '@/pages/home/components/SocialLink-v2.svelte';
+  import SocialLinkV2 from '@/pages/home-v2/components/SocialLink-v2.svelte';
   import { loadRes } from '@/U';
   import LabelV2 from './components/Label-v2.svelte';
 </script>
